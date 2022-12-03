@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "cStandard": "c11",
+            "compilerPath": "arm-none-eabi-g++.exe",
+            "cppStandard": "c++17",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../../libDaisy//**",
+                "${workspaceFolder}/../../DaisySP//**"
+            ],
+            "name": "Win32",
+            "windowsSdkVersion": "10.0.17763.0"
+        },
+        {
+            "cStandard": "c11",
+            "compilerPath": "/home/vinfernandes/Projects/daisy/gcc-arm/bin/arm-none-eabi-g++",
+            "cppStandard": "c++17",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../../libDaisy//**",
+                "${workspaceFolder}/../../DaisySP//**",
+                "/home/vinfernandes/Projects/daisy/DaisyExamples/libDaisy/src",
+                "/home/vinfernandes/Projects/daisy/DaisyExamples/libDaisy/Middlewares/Third_Party/FatFs/src"
+            ],
+            "name": "macOS"
+        }
+    ],
+    "version": 4
+}
