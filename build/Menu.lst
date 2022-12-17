@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccNiobx1.s 			page 1
+ARM GAS  /tmp/ccG9JeCo.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -27,7 +27,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   24              		.thumb_func
   26              	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:
   27              	.LVL0:
-  28              	.LFB2564:
+  28              	.LFB2566:
   29              		.file 1 "../../libDaisy//src/hid/disp/oled_display.h"
    1:../../libDaisy//src/hid/disp/oled_display.h **** #pragma once
    2:../../libDaisy//src/hid/disp/oled_display.h **** #ifndef DSY_OLED_DISPLAY_H
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   27:../../libDaisy//src/hid/disp/oled_display.h ****     uint16_t Height() const override { return driver_.Height(); }
   28:../../libDaisy//src/hid/disp/oled_display.h ****     uint16_t Width() const override { return driver_.Width(); }
   29:../../libDaisy//src/hid/disp/oled_display.h **** 
-ARM GAS  /tmp/ccNiobx1.s 			page 2
+ARM GAS  /tmp/ccG9JeCo.s 			page 2
 
 
   30:../../libDaisy//src/hid/disp/oled_display.h ****     /** 
@@ -71,8 +71,8 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
   34              		@ link register save eliminated.
-  35              	.LBB13:
-  36              	.LBI13:
+  35              	.LBB22:
+  36              	.LBI22:
   37              		.file 2 "../../libDaisy//src/dev/oled_ssd130x.h"
    1:../../libDaisy//src/dev/oled_ssd130x.h **** #pragma once
    2:../../libDaisy//src/dev/oled_ssd130x.h **** #ifndef SA_OLED_SSD130X_H
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   42:../../libDaisy//src/dev/oled_ssd130x.h ****     void SendCommand(uint8_t cmd)
   43:../../libDaisy//src/dev/oled_ssd130x.h ****     {
   44:../../libDaisy//src/dev/oled_ssd130x.h ****         uint8_t buf[2] = {0X00, cmd};
-ARM GAS  /tmp/ccNiobx1.s 			page 3
+ARM GAS  /tmp/ccG9JeCo.s 			page 3
 
 
   45:../../libDaisy//src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   99:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.dc    = {DSY_GPIOB, 4};
  100:../../libDaisy//src/dev/oled_ssd130x.h ****             pin_config.reset = {DSY_GPIOB, 15};
  101:../../libDaisy//src/dev/oled_ssd130x.h ****         }
-ARM GAS  /tmp/ccNiobx1.s 			page 4
+ARM GAS  /tmp/ccG9JeCo.s 			page 4
 
 
  102:../../libDaisy//src/dev/oled_ssd130x.h ****     };
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  156:../../libDaisy//src/dev/oled_ssd130x.h **** 
  157:../../libDaisy//src/dev/oled_ssd130x.h ****         // Init routine...
  158:../../libDaisy//src/dev/oled_ssd130x.h **** 
-ARM GAS  /tmp/ccNiobx1.s 			page 5
+ARM GAS  /tmp/ccG9JeCo.s 			page 5
 
 
  159:../../libDaisy//src/dev/oled_ssd130x.h ****         // Display Off
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  213:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
  214:../../libDaisy//src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x12);
  215:../../libDaisy//src/dev/oled_ssd130x.h ****                 break;
-ARM GAS  /tmp/ccNiobx1.s 			page 6
+ARM GAS  /tmp/ccG9JeCo.s 			page 6
 
 
  216:../../libDaisy//src/dev/oled_ssd130x.h ****         }
@@ -349,7 +349,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  261:../../libDaisy//src/dev/oled_ssd130x.h **** 
  262:../../libDaisy//src/dev/oled_ssd130x.h ****     void Fill(bool on)
   38              		.loc 2 262 10 view .LVU1
-  39              	.LBB14:
+  39              	.LBB23:
  263:../../libDaisy//src/dev/oled_ssd130x.h ****     {
  264:../../libDaisy//src/dev/oled_ssd130x.h ****         for(size_t i = 0; i < sizeof(buffer_); i++)
   40              		.loc 2 264 29 view .LVU2
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   41              		.loc 2 266 24 is_stmt 0 view .LVU3
   42 0000 4942     		rsbs	r1, r1, #0
   43              	.LVL1:
-ARM GAS  /tmp/ccNiobx1.s 			page 7
+ARM GAS  /tmp/ccG9JeCo.s 			page 7
 
 
   44              		.loc 2 266 24 view .LVU4
@@ -370,10 +370,10 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   50 000a FFF7FEBF 		b	memset
   51              	.LVL3:
   52              		.loc 2 266 24 view .LVU6
-  53              	.LBE14:
-  54              	.LBE13:
+  53              	.LBE23:
+  54              	.LBE22:
   55              		.cfi_endproc
-  56              	.LFE2564:
+  56              	.LFE2566:
   58 000e 00BF     		.section	.text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransport
   59              		.align	1
   60              		.p2align 2,,3
@@ -383,7 +383,7 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   64              		.thumb_func
   66              	_ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:
   67              	.LVL4:
-  68              	.LFB2565:
+  68              	.LFB2567:
   28:../../libDaisy//src/hid/disp/oled_display.h **** 
   69              		.loc 1 28 14 is_stmt 1 view -0
   70              		.cfi_startproc
@@ -398,17 +398,45 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   77              		.loc 1 28 63 view .LVU9
   78 0002 7047     		bx	lr
   79              		.cfi_endproc
-  80              	.LFE2565:
-  82              		.section	.text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportE
+  80              	.LFE2567:
+  82              		.section	.text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransport
   83              		.align	1
   84              		.p2align 2,,3
-  85              		.weak	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Updat
+  85              		.weak	_ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Heig
   86              		.syntax unified
   87              		.thumb
   88              		.thumb_func
-  90              	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:
+  90              	_ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv:
   91              	.LVL6:
-  92              	.LFB2567:
+  92              	.LFB2569:
+  27:../../libDaisy//src/hid/disp/oled_display.h ****     uint16_t Width() const override { return driver_.Width(); }
+  93              		.loc 1 27 14 is_stmt 1 view -0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		@ link register save eliminated.
+  27:../../libDaisy//src/hid/disp/oled_display.h ****     uint16_t Width() const override { return driver_.Width(); }
+  98              		.loc 1 27 65 is_stmt 0 view .LVU11
+  99 0000 4020     		movs	r0, #64
+ARM GAS  /tmp/ccG9JeCo.s 			page 8
+
+
+ 100              	.LVL7:
+  27:../../libDaisy//src/hid/disp/oled_display.h ****     uint16_t Width() const override { return driver_.Width(); }
+ 101              		.loc 1 27 65 view .LVU12
+ 102 0002 7047     		bx	lr
+ 103              		.cfi_endproc
+ 104              	.LFE2569:
+ 106              		.section	.text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportE
+ 107              		.align	1
+ 108              		.p2align 2,,3
+ 109              		.weak	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Updat
+ 110              		.syntax unified
+ 111              		.thumb
+ 112              		.thumb_func
+ 114              	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:
+ 115              	.LVL8:
+ 116              	.LFB2570:
   35:../../libDaisy//src/hid/disp/oled_display.h **** 
   36:../../libDaisy//src/hid/disp/oled_display.h ****     /**
   37:../../libDaisy//src/hid/disp/oled_display.h ****     Sets the pixel at the specified coordinate to be on/off.
@@ -418,9 +446,6 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   41:../../libDaisy//src/hid/disp/oled_display.h ****     */
   42:../../libDaisy//src/hid/disp/oled_display.h ****     void DrawPixel(uint_fast8_t x, uint_fast8_t y, bool on) override
   43:../../libDaisy//src/hid/disp/oled_display.h ****     {
-ARM GAS  /tmp/ccNiobx1.s 			page 8
-
-
   44:../../libDaisy//src/hid/disp/oled_display.h ****         driver_.DrawPixel(x, y, on);
   45:../../libDaisy//src/hid/disp/oled_display.h ****     }
   46:../../libDaisy//src/hid/disp/oled_display.h **** 
@@ -429,12 +454,12 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   49:../../libDaisy//src/hid/disp/oled_display.h ****     how the object was initialized.
   50:../../libDaisy//src/hid/disp/oled_display.h ****     */
   51:../../libDaisy//src/hid/disp/oled_display.h ****     void Update() override { driver_.Update(); }
-  93              		.loc 1 51 10 is_stmt 1 view -0
-  94              		.cfi_startproc
-  95              		@ args = 0, pretend = 0, frame = 8
-  96              		@ frame_needed = 0, uses_anonymous_args = 0
-  97              	.LBB25:
-  98              	.LBI25:
+ 117              		.loc 1 51 10 is_stmt 1 view -0
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 8
+ 120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121              	.LBB34:
+ 122              	.LBI34:
  267:../../libDaisy//src/dev/oled_ssd130x.h ****         }
  268:../../libDaisy//src/dev/oled_ssd130x.h ****     };
  269:../../libDaisy//src/dev/oled_ssd130x.h **** 
@@ -442,8 +467,8 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  271:../../libDaisy//src/dev/oled_ssd130x.h ****      * Update the display 
  272:../../libDaisy//src/dev/oled_ssd130x.h ****     */
  273:../../libDaisy//src/dev/oled_ssd130x.h ****     void Update()
-  99              		.loc 2 273 10 view .LVU11
- 100              	.LBB26:
+ 123              		.loc 2 273 10 view .LVU14
+ 124              	.LBB35:
  274:../../libDaisy//src/dev/oled_ssd130x.h ****     {
  275:../../libDaisy//src/dev/oled_ssd130x.h ****         uint8_t i;
  276:../../libDaisy//src/dev/oled_ssd130x.h ****         uint8_t high_column_addr;
@@ -453,311 +478,336 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  280:../../libDaisy//src/dev/oled_ssd130x.h **** 
  281:../../libDaisy//src/dev/oled_ssd130x.h ****             default: high_column_addr = 0x10; break;
  282:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ARM GAS  /tmp/ccG9JeCo.s 			page 9
+
+
  283:../../libDaisy//src/dev/oled_ssd130x.h ****         for(i = 0; i < (height / 8); i++)
- 101              		.loc 2 283 22 view .LVU12
- 102              	.LBE26:
- 103              	.LBE25:
- 104              		.loc 1 51 10 is_stmt 0 view .LVU13
- 105 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 106              		.cfi_def_cfa_offset 24
- 107              		.cfi_offset 4, -24
- 108              		.cfi_offset 5, -20
- 109              		.cfi_offset 6, -16
- 110              		.cfi_offset 7, -12
- 111              		.cfi_offset 8, -8
- 112              		.cfi_offset 14, -4
- 113              	.LBB48:
- 114              	.LBB46:
- 115              	.LBB27:
- 116              	.LBB28:
+ 125              		.loc 2 283 22 view .LVU15
+ 126              	.LBE35:
+ 127              	.LBE34:
+ 128              		.loc 1 51 10 is_stmt 0 view .LVU16
+ 129 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 130              		.cfi_def_cfa_offset 24
+ 131              		.cfi_offset 4, -24
+ 132              		.cfi_offset 5, -20
+ 133              		.cfi_offset 6, -16
+ 134              		.cfi_offset 7, -12
+ 135              		.cfi_offset 8, -8
+ 136              		.cfi_offset 14, -4
+ 137              	.LBB57:
+ 138              	.LBB55:
+ 139              	.LBB36:
+ 140              	.LBB37:
  125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 117              		.loc 2 125 30 view .LVU14
- 118 0004 B024     		movs	r4, #176
- 119              	.LBE28:
- 120              	.LBE27:
- 121              	.LBE46:
- 122              	.LBE48:
- 123              		.loc 1 51 10 view .LVU15
-ARM GAS  /tmp/ccNiobx1.s 			page 9
-
-
- 124 0006 82B0     		sub	sp, sp, #8
- 125              		.cfi_def_cfa_offset 32
- 126              	.LBB49:
- 127              	.LBB47:
- 128              	.LBB33:
- 129              	.LBB29:
+ 141              		.loc 2 125 30 view .LVU17
+ 142 0004 B024     		movs	r4, #176
+ 143              	.LBE37:
+ 144              	.LBE36:
+ 145              	.LBE55:
+ 146              	.LBE57:
+ 147              		.loc 1 51 10 view .LVU18
+ 148 0006 82B0     		sub	sp, sp, #8
+ 149              		.cfi_def_cfa_offset 32
+ 150              	.LBB58:
+ 151              	.LBB56:
+ 152              	.LBB42:
+ 153              	.LBB38:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 130              		.loc 2 124 24 view .LVU16
- 131 0008 00F10806 		add	r6, r0, #8
- 132 000c 00F11005 		add	r5, r0, #16
- 133 0010 00F11408 		add	r8, r0, #20
- 134              	.LVL7:
- 135              	.L5:
+ 154              		.loc 2 124 24 view .LVU19
+ 155 0008 00F10806 		add	r6, r0, #8
+ 156 000c 00F11005 		add	r5, r0, #16
+ 157 0010 00F11408 		add	r8, r0, #20
+ 158              	.LVL9:
+ 159              	.L6:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 136              		.loc 2 124 24 view .LVU17
- 137 0014 0027     		movs	r7, #0
+ 160              		.loc 2 124 24 view .LVU20
+ 161 0014 0027     		movs	r7, #0
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 138              		.loc 2 124 23 view .LVU18
- 139 0016 2846     		mov	r0, r5
- 140 0018 8DF80740 		strb	r4, [sp, #7]
- 141              	.LVL8:
+ 162              		.loc 2 124 23 view .LVU21
+ 163 0016 2846     		mov	r0, r5
+ 164 0018 8DF80740 		strb	r4, [sp, #7]
+ 165              	.LVL10:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 142              		.loc 2 124 23 view .LVU19
- 143              	.LBE29:
- 144              	.LBI27:
+ 166              		.loc 2 124 23 view .LVU22
+ 167              	.LBE38:
+ 168              	.LBI36:
  122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 145              		.loc 2 122 10 is_stmt 1 view .LVU20
- 146              	.LBB30:
+ 169              		.loc 2 122 10 is_stmt 1 view .LVU23
+ 170              	.LBB39:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 147              		.loc 2 124 9 view .LVU21
- 148              	.LBE30:
- 149              	.LBE33:
- 150              		.loc 2 283 22 is_stmt 0 view .LVU22
- 151 001c 0134     		adds	r4, r4, #1
- 152              	.LVL9:
- 153              	.LBB34:
- 154              	.LBB31:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 155              		.loc 2 124 23 view .LVU23
- 156 001e 3946     		mov	r1, r7
- 157 0020 FFF7FEFF 		bl	dsy_gpio_write
- 158              	.LVL10:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 159              		.loc 2 125 9 is_stmt 1 view .LVU24
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 160              		.loc 2 125 30 is_stmt 0 view .LVU25
- 161 0024 6423     		movs	r3, #100
- 162 0026 0122     		movs	r2, #1
- 163 0028 0DF10701 		add	r1, sp, #7
- 164 002c 3046     		mov	r0, r6
- 165              	.LBE31:
- 166              	.LBE34:
- 167              		.loc 2 283 22 view .LVU26
- 168 002e E4B2     		uxtb	r4, r4
- 169              	.LBB35:
- 170              	.LBB32:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
-ARM GAS  /tmp/ccNiobx1.s 			page 10
+ 171              		.loc 2 124 9 view .LVU24
+ 172              	.LBE39:
+ 173              	.LBE42:
+ARM GAS  /tmp/ccG9JeCo.s 			page 10
 
 
- 171              		.loc 2 125 30 view .LVU27
- 172 0030 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 173              	.LVL11:
+ 174              		.loc 2 283 22 is_stmt 0 view .LVU25
+ 175 001c 0134     		adds	r4, r4, #1
+ 176              	.LVL11:
+ 177              	.LBB43:
+ 178              	.LBB40:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 179              		.loc 2 124 23 view .LVU26
+ 180 001e 3946     		mov	r1, r7
+ 181 0020 FFF7FEFF 		bl	dsy_gpio_write
+ 182              	.LVL12:
  125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 174              		.loc 2 125 30 view .LVU28
- 175              	.LBE32:
- 176              	.LBE35:
- 177              	.LBB36:
- 178              	.LBB37:
+ 183              		.loc 2 125 9 is_stmt 1 view .LVU27
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 184              		.loc 2 125 30 is_stmt 0 view .LVU28
+ 185 0024 6423     		movs	r3, #100
+ 186 0026 0122     		movs	r2, #1
+ 187 0028 0DF10701 		add	r1, sp, #7
+ 188 002c 3046     		mov	r0, r6
+ 189              	.LBE40:
+ 190              	.LBE43:
+ 191              		.loc 2 283 22 view .LVU29
+ 192 002e E4B2     		uxtb	r4, r4
+ 193              	.LBB44:
+ 194              	.LBB41:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 195              		.loc 2 125 30 view .LVU30
+ 196 0030 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 197              	.LVL13:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 198              		.loc 2 125 30 view .LVU31
+ 199              	.LBE41:
+ 200              	.LBE44:
+ 201              	.LBB45:
+ 202              	.LBB46:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 179              		.loc 2 124 23 view .LVU29
- 180 0034 3946     		mov	r1, r7
- 181 0036 2846     		mov	r0, r5
- 182 0038 8DF80770 		strb	r7, [sp, #7]
- 183              	.LVL12:
+ 203              		.loc 2 124 23 view .LVU32
+ 204 0034 3946     		mov	r1, r7
+ 205 0036 2846     		mov	r0, r5
+ 206 0038 8DF80770 		strb	r7, [sp, #7]
+ 207              	.LVL14:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 184              		.loc 2 124 23 view .LVU30
- 185              	.LBE37:
- 186              	.LBI36:
+ 208              		.loc 2 124 23 view .LVU33
+ 209              	.LBE46:
+ 210              	.LBI45:
  122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 187              		.loc 2 122 10 is_stmt 1 view .LVU31
- 188              	.LBB38:
+ 211              		.loc 2 122 10 is_stmt 1 view .LVU34
+ 212              	.LBB47:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 189              		.loc 2 124 9 view .LVU32
+ 213              		.loc 2 124 9 view .LVU35
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 190              		.loc 2 124 23 is_stmt 0 view .LVU33
- 191 003c FFF7FEFF 		bl	dsy_gpio_write
- 192              	.LVL13:
+ 214              		.loc 2 124 23 is_stmt 0 view .LVU36
+ 215 003c FFF7FEFF 		bl	dsy_gpio_write
+ 216              	.LVL15:
  125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 193              		.loc 2 125 9 is_stmt 1 view .LVU34
+ 217              		.loc 2 125 9 is_stmt 1 view .LVU37
  125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 194              		.loc 2 125 30 is_stmt 0 view .LVU35
- 195 0040 0122     		movs	r2, #1
- 196 0042 6423     		movs	r3, #100
- 197 0044 0DF10701 		add	r1, sp, #7
- 198 0048 3046     		mov	r0, r6
- 199 004a FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 200              	.LVL14:
+ 218              		.loc 2 125 30 is_stmt 0 view .LVU38
+ARM GAS  /tmp/ccG9JeCo.s 			page 11
+
+
+ 219 0040 0122     		movs	r2, #1
+ 220 0042 6423     		movs	r3, #100
+ 221 0044 0DF10701 		add	r1, sp, #7
+ 222 0048 3046     		mov	r0, r6
+ 223 004a FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 224              	.LVL16:
  125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 201              		.loc 2 125 30 view .LVU36
- 202 004e 1023     		movs	r3, #16
- 203              	.LBE38:
- 204              	.LBE36:
- 205              	.LBB39:
- 206              	.LBB40:
+ 225              		.loc 2 125 30 view .LVU39
+ 226 004e 1023     		movs	r3, #16
+ 227              	.LBE47:
+ 228              	.LBE45:
+ 229              	.LBB48:
+ 230              	.LBB49:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 207              		.loc 2 124 23 view .LVU37
- 208 0050 3946     		mov	r1, r7
- 209 0052 2846     		mov	r0, r5
- 210 0054 8DF80730 		strb	r3, [sp, #7]
- 211              	.LVL15:
+ 231              		.loc 2 124 23 view .LVU40
+ 232 0050 3946     		mov	r1, r7
+ 233 0052 2846     		mov	r0, r5
+ 234 0054 8DF80730 		strb	r3, [sp, #7]
+ 235              	.LVL17:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 212              		.loc 2 124 23 view .LVU38
- 213              	.LBE40:
- 214              	.LBI39:
+ 236              		.loc 2 124 23 view .LVU41
+ 237              	.LBE49:
+ 238              	.LBI48:
  122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 215              		.loc 2 122 10 is_stmt 1 view .LVU39
-ARM GAS  /tmp/ccNiobx1.s 			page 11
-
-
- 216              	.LBB41:
+ 239              		.loc 2 122 10 is_stmt 1 view .LVU42
+ 240              	.LBB50:
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 217              		.loc 2 124 9 view .LVU40
+ 241              		.loc 2 124 9 view .LVU43
  124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 218              		.loc 2 124 23 is_stmt 0 view .LVU41
- 219 0058 FFF7FEFF 		bl	dsy_gpio_write
- 220              	.LVL16:
+ 242              		.loc 2 124 23 is_stmt 0 view .LVU44
+ 243 0058 FFF7FEFF 		bl	dsy_gpio_write
+ 244              	.LVL18:
  125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 221              		.loc 2 125 9 is_stmt 1 view .LVU42
+ 245              		.loc 2 125 9 is_stmt 1 view .LVU45
  125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 222              		.loc 2 125 30 is_stmt 0 view .LVU43
- 223 005c 6423     		movs	r3, #100
- 224 005e 0122     		movs	r2, #1
- 225 0060 0DF10701 		add	r1, sp, #7
- 226 0064 3046     		mov	r0, r6
- 227 0066 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 228              	.LVL17:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 229              		.loc 2 125 30 view .LVU44
- 230              	.LBE41:
- 231              	.LBE39:
- 232              	.LBB42:
- 233              	.LBI42:
- 128:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 234              		.loc 2 128 10 is_stmt 1 view .LVU45
- 235              	.LBB43:
- 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
- 236              		.loc 2 130 9 view .LVU46
- 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
- 237              		.loc 2 130 23 is_stmt 0 view .LVU47
- 238 006a 0121     		movs	r1, #1
- 239 006c 2846     		mov	r0, r5
- 240 006e FFF7FEFF 		bl	dsy_gpio_write
- 241              	.LVL18:
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 242              		.loc 2 131 9 is_stmt 1 view .LVU48
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 243              		.loc 2 131 30 is_stmt 0 view .LVU49
- 244 0072 8022     		movs	r2, #128
- 245 0074 4146     		mov	r1, r8
- 246 0076 6423     		movs	r3, #100
- 247 0078 3046     		mov	r0, r6
- 248              	.LBE43:
- 249              	.LBE42:
- 250              		.loc 2 283 22 view .LVU50
- 251 007a 9044     		add	r8, r8, r2
+ 246              		.loc 2 125 30 is_stmt 0 view .LVU46
+ 247 005c 6423     		movs	r3, #100
+ 248 005e 0122     		movs	r2, #1
+ 249 0060 0DF10701 		add	r1, sp, #7
+ 250 0064 3046     		mov	r0, r6
+ 251 0066 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
  252              	.LVL19:
- 253              	.LBB45:
- 254              	.LBB44:
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 255              		.loc 2 131 30 view .LVU51
- 256 007c FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 257              	.LVL20:
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 258              		.loc 2 131 30 view .LVU52
- 259              	.LBE44:
- 260              	.LBE45:
-ARM GAS  /tmp/ccNiobx1.s 			page 12
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 253              		.loc 2 125 30 view .LVU47
+ 254              	.LBE50:
+ 255              	.LBE48:
+ 256              	.LBB51:
+ 257              	.LBI51:
+ 128:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 258              		.loc 2 128 10 is_stmt 1 view .LVU48
+ 259              	.LBB52:
+ 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
+ 260              		.loc 2 130 9 view .LVU49
+ 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
+ 261              		.loc 2 130 23 is_stmt 0 view .LVU50
+ 262 006a 0121     		movs	r1, #1
+ 263 006c 2846     		mov	r0, r5
+ARM GAS  /tmp/ccG9JeCo.s 			page 12
 
 
- 261              		.loc 2 283 9 is_stmt 1 view .LVU53
- 262              		.loc 2 283 22 view .LVU54
- 263 0080 B82C     		cmp	r4, #184
- 264 0082 C7D1     		bne	.L5
- 265              	.LBE47:
- 266              	.LBE49:
- 267              		.loc 1 51 48 is_stmt 0 view .LVU55
- 268 0084 02B0     		add	sp, sp, #8
- 269              		.cfi_def_cfa_offset 24
- 270              		@ sp needed
- 271 0086 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 272              		.loc 1 51 48 view .LVU56
- 273              		.cfi_endproc
- 274              	.LFE2567:
- 276 008a 00BF     		.section	.rodata._ZN4Menu8drawMenuEv.str1.4,"aMS",%progbits,1
- 277              		.align	2
- 278              	.LC0:
- 279 0000 56434F20 		.ascii	"VCO I\000"
- 279      4900
- 280              		.section	.text._ZN4Menu8drawMenuEv,"ax",%progbits
- 281              		.align	1
- 282              		.p2align 2,,3
- 283              		.global	_ZN4Menu8drawMenuEv
- 284              		.syntax unified
- 285              		.thumb
- 286              		.thumb_func
- 288              	_ZN4Menu8drawMenuEv:
- 289              	.LVL21:
- 290              	.LFB2554:
- 291              		.file 3 "Menu.cpp"
+ 264 006e FFF7FEFF 		bl	dsy_gpio_write
+ 265              	.LVL20:
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 266              		.loc 2 131 9 is_stmt 1 view .LVU51
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 267              		.loc 2 131 30 is_stmt 0 view .LVU52
+ 268 0072 8022     		movs	r2, #128
+ 269 0074 4146     		mov	r1, r8
+ 270 0076 6423     		movs	r3, #100
+ 271 0078 3046     		mov	r0, r6
+ 272              	.LBE52:
+ 273              	.LBE51:
+ 274              		.loc 2 283 22 view .LVU53
+ 275 007a 9044     		add	r8, r8, r2
+ 276              	.LVL21:
+ 277              	.LBB54:
+ 278              	.LBB53:
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 279              		.loc 2 131 30 view .LVU54
+ 280 007c FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 281              	.LVL22:
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 282              		.loc 2 131 30 view .LVU55
+ 283              	.LBE53:
+ 284              	.LBE54:
+ 285              		.loc 2 283 9 is_stmt 1 view .LVU56
+ 286              		.loc 2 283 22 view .LVU57
+ 287 0080 B82C     		cmp	r4, #184
+ 288 0082 C7D1     		bne	.L6
+ 289              	.LBE56:
+ 290              	.LBE58:
+ 291              		.loc 1 51 48 is_stmt 0 view .LVU58
+ 292 0084 02B0     		add	sp, sp, #8
+ 293              		.cfi_def_cfa_offset 24
+ 294              		@ sp needed
+ 295 0086 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 296              		.loc 1 51 48 view .LVU59
+ 297              		.cfi_endproc
+ 298              	.LFE2570:
+ 300 008a 00BF     		.section	.text._ZN4Menu9drawMeterEi,"ax",%progbits
+ 301              		.align	1
+ 302              		.p2align 2,,3
+ 303              		.global	_ZN4Menu9drawMeterEi
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	_ZN4Menu9drawMeterEi:
+ 309              	.LVL23:
+ 310              	.LFB2556:
+ 311              		.file 3 "Menu.cpp"
    1:Menu.cpp      **** #include "Menu.h"
    2:Menu.cpp      **** 
-   3:Menu.cpp      **** void Menu::drawMenu()
-   4:Menu.cpp      **** {
- 292              		.loc 3 4 1 is_stmt 1 view -0
- 293              		.cfi_startproc
- 294              		@ args = 0, pretend = 0, frame = 8
- 295              		@ frame_needed = 0, uses_anonymous_args = 0
-   5:Menu.cpp      ****     display->Fill(false);
- 296              		.loc 3 5 5 view .LVU58
-   4:Menu.cpp      ****     display->Fill(false);
- 297              		.loc 3 4 1 is_stmt 0 view .LVU59
- 298 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 299              		.cfi_def_cfa_offset 24
- 300              		.cfi_offset 4, -24
- 301              		.cfi_offset 5, -20
- 302              		.cfi_offset 6, -16
- 303              		.cfi_offset 7, -12
- 304              		.cfi_offset 8, -8
- 305              		.cfi_offset 14, -4
- 306 0004 0446     		mov	r4, r0
- 307              		.loc 3 5 5 view .LVU60
- 308 0006 0068     		ldr	r0, [r0]
- 309              	.LVL22:
- 310              		.loc 3 5 5 view .LVU61
- 311 0008 4B4A     		ldr	r2, .L28
-   4:Menu.cpp      ****     display->Fill(false);
-ARM GAS  /tmp/ccNiobx1.s 			page 13
+   3:Menu.cpp      **** 
+   4:Menu.cpp      **** void Menu::drawMenu(int octave, const char* title)
+   5:Menu.cpp      **** {
+   6:Menu.cpp      ****     this->drawPageOne(octave, title);
+   7:Menu.cpp      **** }
+ARM GAS  /tmp/ccG9JeCo.s 			page 13
 
 
- 312              		.loc 3 4 1 view .LVU62
- 313 000a 84B0     		sub	sp, sp, #16
- 314              		.cfi_def_cfa_offset 40
- 315              		.loc 3 5 24 view .LVU63
- 316 000c 0368     		ldr	r3, [r0]
- 317 000e 1B69     		ldr	r3, [r3, #16]
- 318 0010 9342     		cmp	r3, r2
- 319 0012 6CD1     		bne	.L9
- 320              	.LBB74:
- 321              	.LBB75:
- 322              	.LBB76:
- 266:../../libDaisy//src/dev/oled_ssd130x.h ****         }
- 323              		.loc 2 266 24 view .LVU64
- 324 0014 4FF48062 		mov	r2, #1024
- 325 0018 0021     		movs	r1, #0
- 326 001a 1430     		adds	r0, r0, #20
- 327 001c FFF7FEFF 		bl	memset
- 328              	.LVL23:
- 329              	.L10:
- 330              	.LBE76:
- 331              	.LBE75:
- 332              	.LBE74:
-   6:Menu.cpp      ****     display->SetCursor((display->Width())/3, 0);
- 333              		.loc 3 6 5 is_stmt 1 view .LVU65
- 334 0020 2568     		ldr	r5, [r4]
- 335 0022 464F     		ldr	r7, .L28+4
- 336              		.loc 3 6 40 is_stmt 0 view .LVU66
- 337 0024 2B68     		ldr	r3, [r5]
- 338 0026 DA68     		ldr	r2, [r3, #12]
- 339 0028 BA42     		cmp	r2, r7
- 340 002a 67D1     		bne	.L25
- 341              		.loc 3 6 23 view .LVU67
- 342 002c 2A26     		movs	r6, #42
- 343              	.L13:
- 344              	.LBB77:
- 345              	.LBB78:
- 346              		.file 4 "../../libDaisy//src/hid/disp/display.h"
+   8:Menu.cpp      **** 
+   9:Menu.cpp      **** void Menu::drawPageOne(int octave, const char* title)
+  10:Menu.cpp      **** {
+  11:Menu.cpp      ****     display->Fill(!this->colorScheme);
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+  13:Menu.cpp      ****     display->WriteString(title, Font_7x10, this->colorScheme);
+  14:Menu.cpp      ****     display->SetCursor(3, (this->display->Height()) - 10);
+  15:Menu.cpp      ****     display->WriteString("Oct", Font_6x8, this->colorScheme);
+  16:Menu.cpp      ****     this->drawMeter(octave);
+  17:Menu.cpp      ****     display->Update();
+  18:Menu.cpp      **** }
+  19:Menu.cpp      **** 
+  20:Menu.cpp      **** void Menu::drawMeter(int activeItem)
+  21:Menu.cpp      **** {
+ 312              		.loc 3 21 1 is_stmt 1 view -0
+ 313              		.cfi_startproc
+ 314              		@ args = 0, pretend = 0, frame = 8
+ 315              		@ frame_needed = 0, uses_anonymous_args = 0
+  22:Menu.cpp      ****     for(int i = 1; i < 5; i++)
+ 316              		.loc 3 22 5 view .LVU61
+ 317              	.LBB70:
+ 318              		.loc 3 22 22 view .LVU62
+ 319              	.LBE70:
+  21:Menu.cpp      ****     for(int i = 1; i < 5; i++)
+ 320              		.loc 3 21 1 is_stmt 0 view .LVU63
+ 321 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 322              		.cfi_def_cfa_offset 32
+ 323              		.cfi_offset 4, -32
+ 324              		.cfi_offset 5, -28
+ 325              		.cfi_offset 6, -24
+ 326              		.cfi_offset 7, -20
+ 327              		.cfi_offset 8, -16
+ 328              		.cfi_offset 9, -12
+ 329              		.cfi_offset 10, -8
+ 330              		.cfi_offset 14, -4
+ 331 0004 1625     		movs	r5, #22
+ 332 0006 86B0     		sub	sp, sp, #24
+ 333              		.cfi_def_cfa_offset 56
+ 334              	.LBB84:
+ 335              		.loc 3 22 13 view .LVU64
+ 336 0008 0124     		movs	r4, #1
+ 337              	.LBE84:
+  21:Menu.cpp      ****     for(int i = 1; i < 5; i++)
+ 338              		.loc 3 21 1 view .LVU65
+ 339 000a 0646     		mov	r6, r0
+ 340 000c 8846     		mov	r8, r1
+ 341 000e DFF88C90 		ldr	r9, .L26
+ 342              	.LVL24:
+ 343              	.L15:
+  23:Menu.cpp      ****     {
+  24:Menu.cpp      ****         if(i == activeItem)
+ 344              		.loc 3 24 9 is_stmt 1 view .LVU66
+ 345              	.LBB85:
+ 346              	.LBB71:
+ 347 0012 A045     		cmp	r8, r4
+ 348 0014 20D0     		beq	.L23
+  25:Menu.cpp      ****         {
+ARM GAS  /tmp/ccG9JeCo.s 			page 14
+
+
+  26:Menu.cpp      ****             for(int j = 0; j < 4; j++)
+  27:Menu.cpp      ****             {
+  28:Menu.cpp      ****                 this->display->DrawCircle(11,
+  29:Menu.cpp      ****                                           (this->display->Height())
+  30:Menu.cpp      ****                                               - (12 + (i * 10)),
+  31:Menu.cpp      ****                                           j,
+  32:Menu.cpp      ****                                           this->colorScheme);
+  33:Menu.cpp      ****             }
+  34:Menu.cpp      ****         }
+  35:Menu.cpp      ****         else
+  36:Menu.cpp      ****         {
+  37:Menu.cpp      ****             this->display->DrawCircle(11,
+ 349              		.loc 3 37 13 view .LVU67
+ 350              		.loc 3 37 19 is_stmt 0 view .LVU68
+ 351 0016 3768     		ldr	r7, [r6]
+  38:Menu.cpp      ****                                       (this->display->Height())
+ 352              		.loc 3 38 62 view .LVU69
+ 353 0018 3868     		ldr	r0, [r7]
+ 354 001a 8368     		ldr	r3, [r0, #8]
+ 355 001c 4B45     		cmp	r3, r9
+ 356 001e 16D1     		bne	.L24
+ 357 0020 4022     		movs	r2, #64
+ 358              	.L14:
+ 359              	.LVL25:
+ 360              	.LBB72:
+ 361              	.LBI72:
+ 362              		.file 4 "../../libDaisy//src/hid/disp/display.h"
    1:../../libDaisy//src/hid/disp/display.h **** #pragma once
    2:../../libDaisy//src/hid/disp/display.h **** #ifndef DSY_DISPLAY_H
    3:../../libDaisy//src/hid/disp/display.h **** #define DSY_DISPLAY_H /**< Macro */
@@ -778,9 +828,6 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   18:../../libDaisy//src/hid/disp/display.h **** */
   19:../../libDaisy//src/hid/disp/display.h **** class OneBitGraphicsDisplay
   20:../../libDaisy//src/hid/disp/display.h **** {
-ARM GAS  /tmp/ccNiobx1.s 			page 14
-
-
   21:../../libDaisy//src/hid/disp/display.h ****   public:
   22:../../libDaisy//src/hid/disp/display.h ****     OneBitGraphicsDisplay() {}
   23:../../libDaisy//src/hid/disp/display.h ****     virtual ~OneBitGraphicsDisplay() {}
@@ -791,6 +838,9 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   28:../../libDaisy//src/hid/disp/display.h ****     Rectangle GetBounds() const
   29:../../libDaisy//src/hid/disp/display.h ****     {
   30:../../libDaisy//src/hid/disp/display.h ****         return Rectangle(int16_t(Width()), int16_t(Height()));
+ARM GAS  /tmp/ccG9JeCo.s 			page 15
+
+
   31:../../libDaisy//src/hid/disp/display.h ****     }
   32:../../libDaisy//src/hid/disp/display.h **** 
   33:../../libDaisy//src/hid/disp/display.h **** 
@@ -838,9 +888,6 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   75:../../libDaisy//src/hid/disp/display.h ****     virtual void DrawRect(uint_fast8_t x1,
   76:../../libDaisy//src/hid/disp/display.h ****                           uint_fast8_t y1,
   77:../../libDaisy//src/hid/disp/display.h ****                           uint_fast8_t x2,
-ARM GAS  /tmp/ccNiobx1.s 			page 15
-
-
   78:../../libDaisy//src/hid/disp/display.h ****                           uint_fast8_t y2,
   79:../../libDaisy//src/hid/disp/display.h ****                           bool         on,
   80:../../libDaisy//src/hid/disp/display.h ****                           bool         fill = false)
@@ -851,6 +898,9 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
   85:../../libDaisy//src/hid/disp/display.h ****     \param rect the rectangle
   86:../../libDaisy//src/hid/disp/display.h ****     \param on   on or off
   87:../../libDaisy//src/hid/disp/display.h ****     \param fill fill the rectangle or draw only the outline
+ARM GAS  /tmp/ccG9JeCo.s 			page 16
+
+
   88:../../libDaisy//src/hid/disp/display.h ****     */
   89:../../libDaisy//src/hid/disp/display.h ****     void DrawRect(const Rectangle& rect, bool on, bool fill = false)
   90:../../libDaisy//src/hid/disp/display.h ****     {
@@ -888,8 +938,269 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  122:../../libDaisy//src/hid/disp/display.h ****     */
  123:../../libDaisy//src/hid/disp/display.h ****     void
  124:../../libDaisy//src/hid/disp/display.h ****     DrawCircle(uint_fast8_t x, uint_fast8_t y, uint_fast8_t radius, bool on)
+ 363              		.loc 4 124 5 is_stmt 1 view .LVU70
+ 364              	.LBB73:
  125:../../libDaisy//src/hid/disp/display.h ****     {
  126:../../libDaisy//src/hid/disp/display.h ****         DrawArc(x, y, radius, 0, 360, on);
+ 365              		.loc 4 126 9 view .LVU71
+ 366              		.loc 4 126 16 is_stmt 0 view .LVU72
+ 367 0022 96F804C0 		ldrb	ip, [r6, #4]	@ zero_extendqisi2
+ 368 0026 4FF4B471 		mov	r1, #360
+ 369 002a 0023     		movs	r3, #0
+ 370 002c 521B     		subs	r2, r2, r5
+ 371              	.LVL26:
+ 372              		.loc 4 126 16 view .LVU73
+ 373 002e CDE9011C 		strd	r1, ip, [sp, #4]
+ 374              	.LVL27:
+ 375              		.loc 4 126 16 view .LVU74
+ 376 0032 0093     		str	r3, [sp]
+ 377 0034 0B21     		movs	r1, #11
+ 378 0036 D0F820A0 		ldr	r10, [r0, #32]
+ 379 003a 0323     		movs	r3, #3
+ 380 003c 3846     		mov	r0, r7
+ARM GAS  /tmp/ccG9JeCo.s 			page 17
+
+
+ 381 003e D047     		blx	r10
+ 382              	.LVL28:
+ 383              	.L12:
+ 384              		.loc 4 126 16 view .LVU75
+ 385              	.LBE73:
+ 386              	.LBE72:
+ 387              	.LBE71:
+  22:Menu.cpp      ****     {
+ 388              		.loc 3 22 5 is_stmt 1 discriminator 2 view .LVU76
+ 389 0040 0134     		adds	r4, r4, #1
+ 390              	.LVL29:
+  22:Menu.cpp      ****     {
+ 391              		.loc 3 22 22 discriminator 2 view .LVU77
+ 392 0042 0A35     		adds	r5, r5, #10
+ 393 0044 052C     		cmp	r4, #5
+ 394 0046 E4D1     		bne	.L15
+ 395              	.LBE85:
+  39:Menu.cpp      ****                                           - (12 + (i * 10)),
+  40:Menu.cpp      ****                                       3,
+  41:Menu.cpp      ****                                       this->colorScheme);
+  42:Menu.cpp      ****         }
+  43:Menu.cpp      ****     }
+  44:Menu.cpp      **** };...
+ 396              		.loc 3 44 1 is_stmt 0 view .LVU78
+ 397 0048 06B0     		add	sp, sp, #24
+ 398              		.cfi_remember_state
+ 399              		.cfi_def_cfa_offset 32
+ 400              		@ sp needed
+ 401 004a BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 402              	.LVL30:
+ 403              	.L24:
+ 404              		.cfi_restore_state
+ 405              	.LBB86:
+ 406              	.LBB83:
+  38:Menu.cpp      ****                                       (this->display->Height())
+ 407              		.loc 3 38 61 view .LVU79
+ 408 004e 3846     		mov	r0, r7
+ 409 0050 9847     		blx	r3
+ 410              	.LVL31:
+ 411 0052 0246     		mov	r2, r0
+ 412              	.LBB75:
+ 413              	.LBB74:
+ 414              		.loc 4 126 41 view .LVU80
+ 415 0054 3868     		ldr	r0, [r7]
+ 416 0056 E4E7     		b	.L14
+ 417              	.L23:
+ 418              		.loc 4 126 41 view .LVU81
+ 419              	.LBE74:
+ 420              	.LBE75:
+ 421              	.LBB76:
+  26:Menu.cpp      ****             for(int j = 0; j < 4; j++)
+ 422              		.loc 3 26 21 view .LVU82
+ 423 0058 0027     		movs	r7, #0
+ 424              	.L13:
+ 425              	.LVL32:
+  28:Menu.cpp      ****                 this->display->DrawCircle(11,
+ 426              		.loc 3 28 17 is_stmt 1 discriminator 2 view .LVU83
+ARM GAS  /tmp/ccG9JeCo.s 			page 18
+
+
+  28:Menu.cpp      ****                 this->display->DrawCircle(11,
+ 427              		.loc 3 28 23 is_stmt 0 discriminator 2 view .LVU84
+ 428 005a 3368     		ldr	r3, [r6]
+  29:Menu.cpp      ****                                           (this->display->Height())
+ 429              		.loc 3 29 66 discriminator 2 view .LVU85
+ 430 005c 4020     		movs	r0, #64
+ 431 005e 1968     		ldr	r1, [r3]
+ 432 0060 8A68     		ldr	r2, [r1, #8]
+ 433 0062 4A45     		cmp	r2, r9
+ 434 0064 14D1     		bne	.L25
+ 435              	.L11:
+ 436              	.LVL33:
+ 437              	.LBB77:
+ 438              	.LBI77:
+ 124:../../libDaisy//src/hid/disp/display.h ****     {
+ 439              		.loc 4 124 5 is_stmt 1 discriminator 2 view .LVU86
+ 440              	.LBB78:
+ 441              		.loc 4 126 9 discriminator 2 view .LVU87
+ 442              		.loc 4 126 16 is_stmt 0 discriminator 2 view .LVU88
+ 443 0066 96F804E0 		ldrb	lr, [r6, #4]	@ zero_extendqisi2
+ 444 006a 4FF4B47C 		mov	ip, #360
+ 445 006e 421B     		subs	r2, r0, r5
+ 446              	.LVL34:
+ 447              		.loc 4 126 16 discriminator 2 view .LVU89
+ 448 0070 1846     		mov	r0, r3
+ 449 0072 3B46     		mov	r3, r7
+ 450              	.LVL35:
+ 451              		.loc 4 126 16 discriminator 2 view .LVU90
+ 452              	.LBE78:
+ 453              	.LBE77:
+  26:Menu.cpp      ****             for(int j = 0; j < 4; j++)
+ 454              		.loc 3 26 13 discriminator 2 view .LVU91
+ 455 0074 0137     		adds	r7, r7, #1
+ 456              	.LVL36:
+ 457              	.LBB81:
+ 458              	.LBB79:
+ 459              		.loc 4 126 16 discriminator 2 view .LVU92
+ 460 0076 CDE901CE 		strd	ip, lr, [sp, #4]
+ 461              	.LVL37:
+ 462              		.loc 4 126 16 discriminator 2 view .LVU93
+ 463 007a 4FF0000C 		mov	ip, #0
+ 464 007e CDF800C0 		str	ip, [sp]
+ 465 0082 D1F820A0 		ldr	r10, [r1, #32]
+ 466 0086 0B21     		movs	r1, #11
+ 467 0088 D047     		blx	r10
+ 468              	.LVL38:
+ 469              		.loc 4 126 16 discriminator 2 view .LVU94
+ 470              	.LBE79:
+ 471              	.LBE81:
+  26:Menu.cpp      ****             for(int j = 0; j < 4; j++)
+ 472              		.loc 3 26 13 is_stmt 1 discriminator 2 view .LVU95
+  26:Menu.cpp      ****             for(int j = 0; j < 4; j++)
+ 473              		.loc 3 26 30 discriminator 2 view .LVU96
+ 474 008a 042F     		cmp	r7, #4
+ 475 008c E5D1     		bne	.L13
+ 476 008e D7E7     		b	.L12
+ 477              	.L25:
+ARM GAS  /tmp/ccG9JeCo.s 			page 19
+
+
+  29:Menu.cpp      ****                                           (this->display->Height())
+ 478              		.loc 3 29 65 is_stmt 0 discriminator 2 view .LVU97
+ 479 0090 1846     		mov	r0, r3
+ 480 0092 0593     		str	r3, [sp, #20]
+ 481 0094 9047     		blx	r2
+ 482              	.LVL39:
+ 483              	.LBB82:
+ 484              	.LBB80:
+ 485              		.loc 4 126 41 discriminator 2 view .LVU98
+ 486 0096 059B     		ldr	r3, [sp, #20]
+ 487 0098 1968     		ldr	r1, [r3]
+ 488 009a E4E7     		b	.L11
+ 489              	.L27:
+ 490              		.align	2
+ 491              	.L26:
+ 492 009c 00000000 		.word	_ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Heig
+ 493              	.LBE80:
+ 494              	.LBE82:
+ 495              	.LBE76:
+ 496              	.LBE83:
+ 497              	.LBE86:
+ 498              		.cfi_endproc
+ 499              	.LFE2556:
+ 501              		.section	.rodata._ZN4Menu11drawPageOneEiPKc.str1.4,"aMS",%progbits,1
+ 502              		.align	2
+ 503              	.LC0:
+ 504 0000 4F637400 		.ascii	"Oct\000"
+ 505              		.section	.text._ZN4Menu11drawPageOneEiPKc,"ax",%progbits
+ 506              		.align	1
+ 507              		.p2align 2,,3
+ 508              		.global	_ZN4Menu11drawPageOneEiPKc
+ 509              		.syntax unified
+ 510              		.thumb
+ 511              		.thumb_func
+ 513              	_ZN4Menu11drawPageOneEiPKc:
+ 514              	.LVL40:
+ 515              	.LFB2555:
+  10:Menu.cpp      **** {
+ 516              		.loc 3 10 1 is_stmt 1 view -0
+ 517              		.cfi_startproc
+ 518              		@ args = 0, pretend = 0, frame = 8
+ 519              		@ frame_needed = 0, uses_anonymous_args = 0
+  11:Menu.cpp      ****     display->Fill(!this->colorScheme);
+ 520              		.loc 3 11 5 view .LVU100
+  10:Menu.cpp      **** {
+ 521              		.loc 3 10 1 is_stmt 0 view .LVU101
+ 522 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 523              		.cfi_def_cfa_offset 28
+ 524              		.cfi_offset 4, -28
+ 525              		.cfi_offset 5, -24
+ 526              		.cfi_offset 6, -20
+ 527              		.cfi_offset 7, -16
+ 528              		.cfi_offset 8, -12
+ 529              		.cfi_offset 9, -8
+ 530              		.cfi_offset 14, -4
+ 531 0004 0446     		mov	r4, r0
+  11:Menu.cpp      ****     display->Fill(!this->colorScheme);
+ARM GAS  /tmp/ccG9JeCo.s 			page 20
+
+
+ 532              		.loc 3 11 5 view .LVU102
+ 533 0006 0068     		ldr	r0, [r0]
+ 534              	.LVL41:
+  10:Menu.cpp      **** {
+ 535              		.loc 3 10 1 view .LVU103
+ 536 0008 0E46     		mov	r6, r1
+ 537 000a 9046     		mov	r8, r2
+  11:Menu.cpp      ****     display->Fill(!this->colorScheme);
+ 538              		.loc 3 11 37 view .LVU104
+ 539 000c 0368     		ldr	r3, [r0]
+  10:Menu.cpp      **** {
+ 540              		.loc 3 10 1 view .LVU105
+ 541 000e 85B0     		sub	sp, sp, #20
+ 542              		.cfi_def_cfa_offset 48
+ 543 0010 7B49     		ldr	r1, .L69
+ 544              	.LVL42:
+  11:Menu.cpp      ****     display->Fill(!this->colorScheme);
+ 545              		.loc 3 11 37 view .LVU106
+ 546 0012 1A69     		ldr	r2, [r3, #16]
+ 547              	.LVL43:
+  11:Menu.cpp      ****     display->Fill(!this->colorScheme);
+ 548              		.loc 3 11 18 view .LVU107
+ 549 0014 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 550 0016 8A42     		cmp	r2, r1
+ 551 0018 83F00103 		eor	r3, r3, #1
+ 552 001c 40F0BC80 		bne	.L29
+ 553              	.LBB127:
+ 554              	.LBB128:
+ 555              	.LBB129:
+ 266:../../libDaisy//src/dev/oled_ssd130x.h ****         }
+ 556              		.loc 2 266 24 view .LVU108
+ 557 0020 5B42     		rsbs	r3, r3, #0
+ 558 0022 1430     		adds	r0, r0, #20
+ 559 0024 4FF48062 		mov	r2, #1024
+ 560 0028 D9B2     		uxtb	r1, r3
+ 561 002a FFF7FEFF 		bl	memset
+ 562              	.LVL44:
+ 563              	.L30:
+ 564              	.LBE129:
+ 565              	.LBE128:
+ 566              	.LBE127:
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+ 567              		.loc 3 12 5 is_stmt 1 view .LVU109
+ 568 002e 2568     		ldr	r5, [r4]
+ 569 0030 DFF8E891 		ldr	r9, .L69+28
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+ 570              		.loc 3 12 40 is_stmt 0 view .LVU110
+ 571 0034 2B68     		ldr	r3, [r5]
+ 572 0036 DA68     		ldr	r2, [r3, #12]
+ 573 0038 4A45     		cmp	r2, r9
+ 574 003a 40F08980 		bne	.L60
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+ 575              		.loc 3 12 23 view .LVU111
+ 576 003e 2A27     		movs	r7, #42
+ 577              	.L33:
+ 578              	.LBB130:
+ 579              	.LBB131:
+ARM GAS  /tmp/ccG9JeCo.s 			page 21
+
+
  127:../../libDaisy//src/hid/disp/display.h ****     };
  128:../../libDaisy//src/hid/disp/display.h **** 
  129:../../libDaisy//src/hid/disp/display.h ****     /** 
@@ -898,9 +1209,6 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  132:../../libDaisy//src/hid/disp/display.h ****     \param ch character to be written
  133:../../libDaisy//src/hid/disp/display.h ****     \param font font to be written in
  134:../../libDaisy//src/hid/disp/display.h ****     \param on    on or off
-ARM GAS  /tmp/ccNiobx1.s 			page 16
-
-
  135:../../libDaisy//src/hid/disp/display.h ****     \return &
  136:../../libDaisy//src/hid/disp/display.h ****     */
  137:../../libDaisy//src/hid/disp/display.h ****     virtual char WriteChar(char ch, FontDef font, bool on) = 0;
@@ -941,464 +1249,738 @@ ARM GAS  /tmp/ccNiobx1.s 			page 1
  172:../../libDaisy//src/hid/disp/display.h ****     {
  173:../../libDaisy//src/hid/disp/display.h ****         currentX_ = (x >= Width()) ? Width() - 1 : x;
  174:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 347              		.loc 4 174 33 view .LVU68
- 348 002e 9B68     		ldr	r3, [r3, #8]
- 349 0030 2846     		mov	r0, r5
+ 580              		.loc 4 174 34 view .LVU112
+ 581 0040 9B68     		ldr	r3, [r3, #8]
  173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 350              		.loc 4 173 19 view .LVU69
- 351 0032 AE80     		strh	r6, [r5, #4]	@ movhi
- 352              		.loc 4 174 9 is_stmt 1 view .LVU70
- 353              		.loc 4 174 33 is_stmt 0 view .LVU71
- 354 0034 9847     		blx	r3
- 355              	.LVL24:
- 356              		.loc 4 174 19 view .LVU72
- 357 0036 0028     		cmp	r0, #0
- 358 0038 57D1     		bne	.L22
- 359              		.loc 4 174 46 view .LVU73
- 360 003a 2B68     		ldr	r3, [r5]
- 361              		.loc 4 174 45 view .LVU74
- 362 003c 2846     		mov	r0, r5
-ARM GAS  /tmp/ccNiobx1.s 			page 17
+ 582              		.loc 4 173 19 view .LVU113
+ 583 0042 AF80     		strh	r7, [r5, #4]	@ movhi
+ 584              		.loc 4 174 9 is_stmt 1 view .LVU114
+ 585 0044 6F4F     		ldr	r7, .L69+4
+ 586 0046 BB42     		cmp	r3, r7
+ 587 0048 40F09B80 		bne	.L35
+ARM GAS  /tmp/ccG9JeCo.s 			page 22
 
 
- 363 003e 9B68     		ldr	r3, [r3, #8]
- 364 0040 9847     		blx	r3
- 365              	.LVL25:
- 366              		.loc 4 174 19 view .LVU75
- 367 0042 0138     		subs	r0, r0, #1
- 368 0044 83B2     		uxth	r3, r0
- 369              	.L15:
- 370              	.LBE78:
- 371              	.LBE77:
-   7:Menu.cpp      ****     display->WriteString("VCO I", Font_7x10, true);
- 372              		.loc 3 7 5 view .LVU76
- 373 0046 2068     		ldr	r0, [r4]
- 374              		.loc 3 7 25 view .LVU77
- 375 0048 3D4A     		ldr	r2, .L28+8
- 376              		.loc 3 7 50 view .LVU78
- 377 004a 0168     		ldr	r1, [r0]
- 378              	.LBB83:
- 379              	.LBB79:
- 380              		.loc 4 174 19 view .LVU79
- 381 004c EB80     		strh	r3, [r5, #6]	@ movhi
- 382              	.LBE79:
- 383              	.LBE83:
- 384              		.loc 3 7 5 is_stmt 1 view .LVU80
- 385              		.loc 3 7 25 is_stmt 0 view .LVU81
- 386 004e 0125     		movs	r5, #1
- 387 0050 0CCA     		ldm	r2, {r2, r3}
- 388 0052 0095     		str	r5, [sp]
- 389 0054 8D6A     		ldr	r5, [r1, #40]
- 390 0056 3B49     		ldr	r1, .L28+12
- 391 0058 A847     		blx	r5
- 392              	.LVL26:
-   8:Menu.cpp      ****     display->Update();
- 393              		.loc 3 8 5 is_stmt 1 view .LVU82
- 394 005a 2068     		ldr	r0, [r4]
- 395 005c 3A4A     		ldr	r2, .L28+16
- 396              		.loc 3 8 21 is_stmt 0 view .LVU83
- 397 005e 0368     		ldr	r3, [r0]
- 398 0060 1B6B     		ldr	r3, [r3, #48]
- 399 0062 9342     		cmp	r3, r2
- 400 0064 46D1     		bne	.L16
- 401              	.LBB84:
- 402              	.LBB85:
- 403              	.LBB86:
- 404              	.LBB87:
- 405              	.LBB88:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 406              		.loc 2 124 24 view .LVU84
- 407 0066 00F10806 		add	r6, r0, #8
- 408 006a 00F11005 		add	r5, r0, #16
- 409 006e 00F11408 		add	r8, r0, #20
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 410              		.loc 2 125 30 view .LVU85
- 411 0072 B024     		movs	r4, #176
- 412              	.LVL27:
- 413              	.L18:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 414              		.loc 2 125 30 view .LVU86
-ARM GAS  /tmp/ccNiobx1.s 			page 18
-
-
- 415 0074 0027     		movs	r7, #0
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 416              		.loc 2 124 23 view .LVU87
- 417 0076 2846     		mov	r0, r5
- 418 0078 8DF80F40 		strb	r4, [sp, #15]
- 419              	.LVL28:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 420              		.loc 2 124 23 view .LVU88
- 421              	.LBE88:
- 422              	.LBI87:
- 122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 423              		.loc 2 122 10 is_stmt 1 view .LVU89
- 424              	.LBB89:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 425              		.loc 2 124 9 view .LVU90
- 426              	.LBE89:
- 427              	.LBE87:
- 428              		.loc 2 283 22 is_stmt 0 view .LVU91
- 429 007c 0134     		adds	r4, r4, #1
- 430              	.LVL29:
- 431              	.LBB92:
- 432              	.LBB90:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 433              		.loc 2 124 23 view .LVU92
- 434 007e 3946     		mov	r1, r7
- 435 0080 FFF7FEFF 		bl	dsy_gpio_write
- 436              	.LVL30:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 437              		.loc 2 125 9 is_stmt 1 view .LVU93
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 438              		.loc 2 125 30 is_stmt 0 view .LVU94
- 439 0084 6423     		movs	r3, #100
- 440 0086 0122     		movs	r2, #1
- 441 0088 0DF10F01 		add	r1, sp, #15
- 442 008c 3046     		mov	r0, r6
- 443              	.LBE90:
- 444              	.LBE92:
- 445              		.loc 2 283 22 view .LVU95
- 446 008e E4B2     		uxtb	r4, r4
- 447              	.LBB93:
- 448              	.LBB91:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 449              		.loc 2 125 30 view .LVU96
- 450 0090 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 451              	.LVL31:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 452              		.loc 2 125 30 view .LVU97
- 453              	.LBE91:
- 454              	.LBE93:
- 455              	.LBB94:
- 456              	.LBB95:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 457              		.loc 2 124 23 view .LVU98
- 458 0094 3946     		mov	r1, r7
- 459 0096 2846     		mov	r0, r5
- 460 0098 8DF80F70 		strb	r7, [sp, #15]
- 461              	.LVL32:
-ARM GAS  /tmp/ccNiobx1.s 			page 19
-
-
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 462              		.loc 2 124 23 view .LVU99
- 463              	.LBE95:
- 464              	.LBI94:
- 122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 465              		.loc 2 122 10 is_stmt 1 view .LVU100
- 466              	.LBB96:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 467              		.loc 2 124 9 view .LVU101
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 468              		.loc 2 124 23 is_stmt 0 view .LVU102
- 469 009c FFF7FEFF 		bl	dsy_gpio_write
- 470              	.LVL33:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 471              		.loc 2 125 9 is_stmt 1 view .LVU103
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 472              		.loc 2 125 30 is_stmt 0 view .LVU104
- 473 00a0 0122     		movs	r2, #1
- 474 00a2 6423     		movs	r3, #100
- 475 00a4 0DF10F01 		add	r1, sp, #15
- 476 00a8 3046     		mov	r0, r6
- 477 00aa FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 478              	.LVL34:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 479              		.loc 2 125 30 view .LVU105
- 480 00ae 1023     		movs	r3, #16
- 481              	.LBE96:
- 482              	.LBE94:
- 483              	.LBB97:
- 484              	.LBB98:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 485              		.loc 2 124 23 view .LVU106
- 486 00b0 3946     		mov	r1, r7
- 487 00b2 2846     		mov	r0, r5
- 488 00b4 8DF80F30 		strb	r3, [sp, #15]
- 489              	.LVL35:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 490              		.loc 2 124 23 view .LVU107
- 491              	.LBE98:
- 492              	.LBI97:
- 122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 493              		.loc 2 122 10 is_stmt 1 view .LVU108
- 494              	.LBB99:
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 495              		.loc 2 124 9 view .LVU109
- 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
- 496              		.loc 2 124 23 is_stmt 0 view .LVU110
- 497 00b8 FFF7FEFF 		bl	dsy_gpio_write
- 498              	.LVL36:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 499              		.loc 2 125 9 is_stmt 1 view .LVU111
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 500              		.loc 2 125 30 is_stmt 0 view .LVU112
- 501 00bc 6423     		movs	r3, #100
- 502 00be 0122     		movs	r2, #1
- 503 00c0 0DF10F01 		add	r1, sp, #15
- 504 00c4 3046     		mov	r0, r6
-ARM GAS  /tmp/ccNiobx1.s 			page 20
-
-
- 505 00c6 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 506              	.LVL37:
- 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 507              		.loc 2 125 30 view .LVU113
- 508              	.LBE99:
- 509              	.LBE97:
- 510              	.LBB100:
- 511              	.LBI100:
- 128:../../libDaisy//src/dev/oled_ssd130x.h ****     {
- 512              		.loc 2 128 10 is_stmt 1 view .LVU114
- 513              	.LBB101:
- 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
- 514              		.loc 2 130 9 view .LVU115
- 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
- 515              		.loc 2 130 23 is_stmt 0 view .LVU116
- 516 00ca 0121     		movs	r1, #1
- 517 00cc 2846     		mov	r0, r5
- 518 00ce FFF7FEFF 		bl	dsy_gpio_write
- 519              	.LVL38:
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 520              		.loc 2 131 9 is_stmt 1 view .LVU117
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 521              		.loc 2 131 30 is_stmt 0 view .LVU118
- 522 00d2 8022     		movs	r2, #128
- 523 00d4 4146     		mov	r1, r8
- 524 00d6 6423     		movs	r3, #100
- 525 00d8 3046     		mov	r0, r6
- 526              	.LBE101:
- 527              	.LBE100:
- 528              		.loc 2 283 22 view .LVU119
- 529 00da 9044     		add	r8, r8, r2
- 530              	.LVL39:
- 531              	.LBB103:
- 532              	.LBB102:
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 533              		.loc 2 131 30 view .LVU120
- 534 00dc FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
- 535              	.LVL40:
- 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
- 536              		.loc 2 131 30 view .LVU121
- 537              	.LBE102:
- 538              	.LBE103:
- 539              		.loc 2 283 9 is_stmt 1 view .LVU122
- 540              		.loc 2 283 22 view .LVU123
- 541 00e0 B82C     		cmp	r4, #184
- 542 00e2 C7D1     		bne	.L18
- 543              	.LBE86:
- 544              	.LBE85:
- 545              	.LBE84:
-   9:Menu.cpp      **** }...
- 546              		.loc 3 9 1 is_stmt 0 view .LVU124
- 547 00e4 04B0     		add	sp, sp, #16
- 548              		.cfi_remember_state
- 549              		.cfi_def_cfa_offset 24
- 550              		@ sp needed
- 551 00e6 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 552              	.LVL41:
-ARM GAS  /tmp/ccNiobx1.s 			page 21
-
-
- 553              	.L22:
- 554              		.cfi_restore_state
- 555              	.LBB104:
- 556              	.LBB80:
- 557              		.loc 4 174 19 view .LVU125
- 558 00ea 0023     		movs	r3, #0
- 559 00ec ABE7     		b	.L15
- 560              	.L9:
- 561              		.loc 4 174 19 view .LVU126
- 562              	.LBE80:
- 563              	.LBE104:
-   5:Menu.cpp      ****     display->Fill(false);
- 564              		.loc 3 5 18 view .LVU127
- 565 00ee 0021     		movs	r1, #0
- 566 00f0 9847     		blx	r3
- 567              	.LVL42:
- 568 00f2 95E7     		b	.L10
- 569              	.L16:
- 570              		.loc 3 9 1 view .LVU128
- 571 00f4 04B0     		add	sp, sp, #16
- 572              		.cfi_remember_state
- 573              		.cfi_def_cfa_offset 24
- 574              		@ sp needed
- 575 00f6 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
- 576              		.cfi_restore 14
- 577              		.cfi_restore 8
- 578              		.cfi_restore 7
- 579              		.cfi_restore 6
- 580              		.cfi_restore 5
- 581              		.cfi_restore 4
- 582              		.cfi_def_cfa_offset 0
- 583              	.LVL43:
-   8:Menu.cpp      ****     display->Update();
- 584              		.loc 3 8 20 view .LVU129
- 585 00fa 1847     		bx	r3	@ indirect register sibling call
- 586              	.LVL44:
- 587              	.L25:
- 588              		.cfi_restore_state
-   6:Menu.cpp      ****     display->SetCursor((display->Width())/3, 0);
- 589              		.loc 3 6 23 view .LVU130
- 590 00fc 134E     		ldr	r6, .L28+20
-   6:Menu.cpp      ****     display->SetCursor((display->Width())/3, 0);
- 591              		.loc 3 6 39 view .LVU131
- 592 00fe 2846     		mov	r0, r5
- 593 0100 9047     		blx	r2
- 594              	.LVL45:
-   6:Menu.cpp      ****     display->SetCursor((display->Width())/3, 0);
- 595              		.loc 3 6 23 view .LVU132
- 596 0102 A6FB0036 		umull	r3, r6, r6, r0
- 597              	.LBB105:
- 598              	.LBB81:
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 599              		.loc 4 173 33 view .LVU133
- 600 0106 2B68     		ldr	r3, [r5]
- 601 0108 DA68     		ldr	r2, [r3, #12]
- 602              	.LBE81:
- 603              	.LBE105:
-ARM GAS  /tmp/ccNiobx1.s 			page 22
-
-
-   6:Menu.cpp      ****     display->SetCursor((display->Width())/3, 0);
- 604              		.loc 3 6 23 view .LVU134
- 605 010a C6F34F06 		ubfx	r6, r6, #1, #16
- 606              	.LVL46:
- 607              	.LBB106:
- 608              	.LBI77:
+ 588              	.L37:
+ 589              		.loc 4 174 19 is_stmt 0 view .LVU115
+ 590 004c 0323     		movs	r3, #3
+ 591              	.L36:
+ 592              	.LBE131:
+ 593              	.LBE130:
+  13:Menu.cpp      ****     display->WriteString(title, Font_7x10, this->colorScheme);
+ 594              		.loc 3 13 5 view .LVU116
+ 595 004e 2068     		ldr	r0, [r4]
+  13:Menu.cpp      ****     display->WriteString(title, Font_7x10, this->colorScheme);
+ 596              		.loc 3 13 25 view .LVU117
+ 597 0050 4146     		mov	r1, r8
+ 598              	.LBB138:
+ 599              	.LBB132:
+ 600              		.loc 4 174 19 view .LVU118
+ 601 0052 EB80     		strh	r3, [r5, #6]	@ movhi
+ 602              	.LBE132:
+ 603              	.LBE138:
+  13:Menu.cpp      ****     display->WriteString(title, Font_7x10, this->colorScheme);
+ 604              		.loc 3 13 5 is_stmt 1 view .LVU119
+  13:Menu.cpp      ****     display->WriteString(title, Font_7x10, this->colorScheme);
+ 605              		.loc 3 13 61 is_stmt 0 view .LVU120
+ 606 0054 0268     		ldr	r2, [r0]
+  13:Menu.cpp      ****     display->WriteString(title, Font_7x10, this->colorScheme);
+ 607              		.loc 3 13 25 view .LVU121
+ 608 0056 2579     		ldrb	r5, [r4, #4]	@ zero_extendqisi2
+ 609 0058 6B4B     		ldr	r3, .L69+8
+ 610 005a 0095     		str	r5, [sp]
+ 611 005c 956A     		ldr	r5, [r2, #40]
+ 612 005e 0CCB     		ldm	r3, {r2, r3}
+ 613 0060 A847     		blx	r5
+ 614              	.LVL45:
+  14:Menu.cpp      ****     display->SetCursor(3, (this->display->Height()) - 10);
+ 615              		.loc 3 14 5 is_stmt 1 view .LVU122
+ 616 0062 2568     		ldr	r5, [r4]
+  14:Menu.cpp      ****     display->SetCursor(3, (this->display->Height()) - 10);
+ 617              		.loc 3 14 50 is_stmt 0 view .LVU123
+ 618 0064 2B68     		ldr	r3, [r5]
+ 619 0066 9A68     		ldr	r2, [r3, #8]
+ 620 0068 BA42     		cmp	r2, r7
+ 621 006a 40F0AA80 		bne	.L61
+ 622 006e 4FF03608 		mov	r8, #54
+ 623              	.LVL46:
+ 624              	.L39:
+ 625              	.LBB139:
+ 626              	.LBI139:
  171:../../libDaisy//src/hid/disp/display.h ****     {
- 609              		.loc 4 171 10 is_stmt 1 view .LVU135
- 610              	.LBB82:
+ 627              		.loc 4 171 10 is_stmt 1 view .LVU124
+ 628              	.LBB140:
  173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 611              		.loc 4 173 9 view .LVU136
- 612 010e BA42     		cmp	r2, r7
- 613 0110 07D1     		bne	.L26
+ 629              		.loc 4 173 9 view .LVU125
  173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 614              		.loc 4 173 33 is_stmt 0 view .LVU137
- 615 0112 8020     		movs	r0, #128
- 616              	.L12:
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 617              		.loc 4 173 19 view .LVU138
- 618 0114 8642     		cmp	r6, r0
- 619 0116 8AD3     		bcc	.L13
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 620              		.loc 4 173 44 view .LVU139
- 621 0118 DA68     		ldr	r2, [r3, #12]
- 622 011a BA42     		cmp	r2, r7
- 623 011c 05D1     		bne	.L27
- 624 011e 7F26     		movs	r6, #127
- 625              	.LVL47:
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 626              		.loc 4 173 44 view .LVU140
- 627 0120 85E7     		b	.L13
- 628              	.LVL48:
- 629              	.L26:
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 630              		.loc 4 173 32 view .LVU141
- 631 0122 2846     		mov	r0, r5
- 632 0124 9047     		blx	r2
- 633              	.LVL49:
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 634              		.loc 4 173 44 view .LVU142
- 635 0126 2B68     		ldr	r3, [r5]
- 636 0128 F4E7     		b	.L12
- 637              	.L27:
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 638              		.loc 4 173 43 view .LVU143
- 639 012a 2846     		mov	r0, r5
- 640 012c 9047     		blx	r2
- 641              	.LVL50:
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 642              		.loc 4 173 19 view .LVU144
- 643 012e 0138     		subs	r0, r0, #1
- 644              		.loc 4 174 34 view .LVU145
- 645 0130 2B68     		ldr	r3, [r5]
- 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 646              		.loc 4 173 19 view .LVU146
- 647 0132 86B2     		uxth	r6, r0
- 648              	.LVL51:
-ARM GAS  /tmp/ccNiobx1.s 			page 23
+ 630              		.loc 4 173 33 is_stmt 0 view .LVU126
+ 631 0072 DA68     		ldr	r2, [r3, #12]
+ 632 0074 4A45     		cmp	r2, r9
+ 633 0076 40F09980 		bne	.L62
+ 634              	.L54:
+ARM GAS  /tmp/ccG9JeCo.s 			page 23
 
 
  173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
- 649              		.loc 4 173 19 view .LVU147
- 650 0134 7BE7     		b	.L13
- 651              	.L29:
- 652 0136 00BF     		.align	2
- 653              	.L28:
- 654 0138 00000000 		.word	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillE
- 655 013c 00000000 		.word	_ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5Widt
- 656 0140 00000000 		.word	Font_7x10
- 657 0144 00000000 		.word	.LC0
- 658 0148 00000000 		.word	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Updat
- 659 014c ABAAAAAA 		.word	-1431655765
- 660              	.LBE82:
- 661              	.LBE106:
- 662              		.cfi_endproc
- 663              	.LFE2554:
- 665              		.text
- 666              	.Letext0:
- 667              		.file 5 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/machine/_default_types.h"
- 668              		.file 6 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/_stdint.h"
- 669              		.file 7 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/stdint.h"
- 670              		.file 8 "/home/vinfernandes/Projects/daisy/gcc-arm/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h"
- 671              		.file 9 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cmath"
- 672              		.file 10 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/std_abs.
- 673              		.file 11 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdlib"
- 674              		.file 12 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdint"
- 675              		.file 13 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/type_traits"
- 676              		.file 14 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/debug/debug.h
- 677              		.file 15 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/arm-none-eabi
- 678              		.file 16 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/algorith
- 679              		.file 17 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/stl_pair
- 680              		.file 18 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/exceptio
- 681              		.file 19 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdarg"
- 682              		.file 20 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdio"
- 683              		.file 21 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstring"
- 684              		.file 22 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/predefin
- 685              		.file 23 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/_types.h"
- 686              		.file 24 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/reent.h"
- 687              		.file 25 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/lock.h"
- 688              		.file 26 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/math.h"
- 689              		.file 27 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/stdlib.h"
- 690              		.file 28 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/math.h"
- 691              		.file 29 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/stdlib.h"
- 692              		.file 30 "../../libDaisy//src/daisy_core.h"
- 693              		.file 31 "../../libDaisy//src/per/spi.h"
- 694              		.file 32 "../../libDaisy//src/hid/disp/graphics_common.h"
- 695              		.file 33 "../../libDaisy//src/util/wav_format.h"
- 696              		.file 34 "../../libDaisy//src/dev/max11300.h"
- 697              		.file 35 "../../libDaisy//src/daisy_seed.h"
- 698              		.file 36 "../../libDaisy//src/per/gpio.h"
- 699              		.file 37 "/home/vinfernandes/Projects/daisy/gcc-arm/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h"
- 700              		.file 38 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/stdio.h"
- 701              		.file 39 "../../libDaisy//src/util/oled_fonts.h"
- 702              		.file 40 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/string.h"
- 703              		.file 41 "Menu.h"
- 704              		.file 42 "<built-in>"
- 705              		.file 43 "../../libDaisy//src/dev/sr_595.h"
-ARM GAS  /tmp/ccNiobx1.s 			page 24
+ 635              		.loc 4 173 19 view .LVU127
+ 636 007a 0322     		movs	r2, #3
+ 637              	.L40:
+ 638              		.loc 4 174 34 view .LVU128
+ 639 007c 9B68     		ldr	r3, [r3, #8]
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 640              		.loc 4 173 19 view .LVU129
+ 641 007e AA80     		strh	r2, [r5, #4]	@ movhi
+ 642              		.loc 4 174 9 is_stmt 1 view .LVU130
+ 643 0080 BB42     		cmp	r3, r7
+ 644 0082 40F09080 		bne	.L63
+ 645              		.loc 4 174 34 is_stmt 0 view .LVU131
+ 646 0086 4020     		movs	r0, #64
+ 647              	.L43:
+ 648              		.loc 4 174 19 view .LVU132
+ 649 0088 8045     		cmp	r8, r0
+ 650 008a 06D3     		bcc	.L44
+ 651              		.loc 4 174 46 view .LVU133
+ 652 008c 2B68     		ldr	r3, [r5]
+ 653 008e 9B68     		ldr	r3, [r3, #8]
+ 654 0090 BB42     		cmp	r3, r7
+ 655 0092 40F09D80 		bne	.L64
+ 656 0096 4FF03F08 		mov	r8, #63
+ 657              	.L44:
+ 658              		.loc 4 174 46 view .LVU134
+ 659              	.LBE140:
+ 660              	.LBE139:
+  15:Menu.cpp      ****     display->WriteString("Oct", Font_6x8, this->colorScheme);
+ 661              		.loc 3 15 5 view .LVU135
+ 662 009a 2068     		ldr	r0, [r4]
+  15:Menu.cpp      ****     display->WriteString("Oct", Font_6x8, this->colorScheme);
+ 663              		.loc 3 15 25 view .LVU136
+ 664 009c 2179     		ldrb	r1, [r4, #4]	@ zero_extendqisi2
+  15:Menu.cpp      ****     display->WriteString("Oct", Font_6x8, this->colorScheme);
+ 665              		.loc 3 15 60 view .LVU137
+ 666 009e 0268     		ldr	r2, [r0]
+  15:Menu.cpp      ****     display->WriteString("Oct", Font_6x8, this->colorScheme);
+ 667              		.loc 3 15 25 view .LVU138
+ 668 00a0 5A4B     		ldr	r3, .L69+12
+ 669              	.LBB146:
+ 670              	.LBB141:
+ 671              		.loc 4 174 19 view .LVU139
+ 672 00a2 A5F80680 		strh	r8, [r5, #6]	@ movhi
+ 673              	.LVL47:
+ 674              		.loc 4 174 19 view .LVU140
+ 675              	.LBE141:
+ 676              	.LBE146:
+  15:Menu.cpp      ****     display->WriteString("Oct", Font_6x8, this->colorScheme);
+ 677              		.loc 3 15 5 is_stmt 1 view .LVU141
+  15:Menu.cpp      ****     display->WriteString("Oct", Font_6x8, this->colorScheme);
+ 678              		.loc 3 15 25 is_stmt 0 view .LVU142
+ 679 00a6 0091     		str	r1, [sp]
+ 680 00a8 5949     		ldr	r1, .L69+16
+ 681 00aa 956A     		ldr	r5, [r2, #40]
+ 682 00ac 0CCB     		ldm	r3, {r2, r3}
+ 683 00ae A847     		blx	r5
+ARM GAS  /tmp/ccG9JeCo.s 			page 24
 
 
-ARM GAS  /tmp/ccNiobx1.s 			page 25
+ 684              	.LVL48:
+  16:Menu.cpp      ****     this->drawMeter(octave);
+ 685              		.loc 3 16 5 is_stmt 1 view .LVU143
+  16:Menu.cpp      ****     this->drawMeter(octave);
+ 686              		.loc 3 16 20 is_stmt 0 view .LVU144
+ 687 00b0 2046     		mov	r0, r4
+ 688 00b2 3146     		mov	r1, r6
+ 689 00b4 FFF7FEFF 		bl	_ZN4Menu9drawMeterEi
+ 690              	.LVL49:
+  17:Menu.cpp      ****     display->Update();
+ 691              		.loc 3 17 5 is_stmt 1 view .LVU145
+ 692 00b8 2068     		ldr	r0, [r4]
+ 693 00ba 564A     		ldr	r2, .L69+20
+  17:Menu.cpp      ****     display->Update();
+ 694              		.loc 3 17 21 is_stmt 0 view .LVU146
+ 695 00bc 0368     		ldr	r3, [r0]
+ 696 00be 1B6B     		ldr	r3, [r3, #48]
+ 697 00c0 9342     		cmp	r3, r2
+ 698 00c2 41D1     		bne	.L46
+ 699              	.LBB147:
+ 700              	.LBB148:
+ 701              	.LBB149:
+ 702              	.LBB150:
+ 703              	.LBB151:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 704              		.loc 2 124 24 view .LVU147
+ 705 00c4 00F10806 		add	r6, r0, #8
+ 706              	.LVL50:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 707              		.loc 2 124 24 view .LVU148
+ 708 00c8 00F11005 		add	r5, r0, #16
+ 709 00cc 00F11408 		add	r8, r0, #20
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 710              		.loc 2 125 30 view .LVU149
+ 711 00d0 B024     		movs	r4, #176
+ 712              	.LVL51:
+ 713              	.L48:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 714              		.loc 2 125 30 view .LVU150
+ 715 00d2 0027     		movs	r7, #0
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 716              		.loc 2 124 23 view .LVU151
+ 717 00d4 2846     		mov	r0, r5
+ 718 00d6 8DF80F40 		strb	r4, [sp, #15]
+ 719              	.LVL52:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 720              		.loc 2 124 23 view .LVU152
+ 721              	.LBE151:
+ 722              	.LBI150:
+ 122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 723              		.loc 2 122 10 is_stmt 1 view .LVU153
+ 724              	.LBB152:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 725              		.loc 2 124 9 view .LVU154
+ 726              	.LBE152:
+ 727              	.LBE150:
+ 728              		.loc 2 283 22 is_stmt 0 view .LVU155
+ARM GAS  /tmp/ccG9JeCo.s 			page 25
+
+
+ 729 00da 0134     		adds	r4, r4, #1
+ 730              	.LVL53:
+ 731              	.LBB155:
+ 732              	.LBB153:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 733              		.loc 2 124 23 view .LVU156
+ 734 00dc 3946     		mov	r1, r7
+ 735 00de FFF7FEFF 		bl	dsy_gpio_write
+ 736              	.LVL54:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 737              		.loc 2 125 9 is_stmt 1 view .LVU157
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 738              		.loc 2 125 30 is_stmt 0 view .LVU158
+ 739 00e2 6423     		movs	r3, #100
+ 740 00e4 0122     		movs	r2, #1
+ 741 00e6 0DF10F01 		add	r1, sp, #15
+ 742 00ea 3046     		mov	r0, r6
+ 743              	.LBE153:
+ 744              	.LBE155:
+ 745              		.loc 2 283 22 view .LVU159
+ 746 00ec E4B2     		uxtb	r4, r4
+ 747              	.LBB156:
+ 748              	.LBB154:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 749              		.loc 2 125 30 view .LVU160
+ 750 00ee FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 751              	.LVL55:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 752              		.loc 2 125 30 view .LVU161
+ 753              	.LBE154:
+ 754              	.LBE156:
+ 755              	.LBB157:
+ 756              	.LBB158:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 757              		.loc 2 124 23 view .LVU162
+ 758 00f2 3946     		mov	r1, r7
+ 759 00f4 2846     		mov	r0, r5
+ 760 00f6 8DF80F70 		strb	r7, [sp, #15]
+ 761              	.LVL56:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 762              		.loc 2 124 23 view .LVU163
+ 763              	.LBE158:
+ 764              	.LBI157:
+ 122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 765              		.loc 2 122 10 is_stmt 1 view .LVU164
+ 766              	.LBB159:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 767              		.loc 2 124 9 view .LVU165
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 768              		.loc 2 124 23 is_stmt 0 view .LVU166
+ 769 00fa FFF7FEFF 		bl	dsy_gpio_write
+ 770              	.LVL57:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 771              		.loc 2 125 9 is_stmt 1 view .LVU167
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 772              		.loc 2 125 30 is_stmt 0 view .LVU168
+ 773 00fe 0122     		movs	r2, #1
+ARM GAS  /tmp/ccG9JeCo.s 			page 26
+
+
+ 774 0100 6423     		movs	r3, #100
+ 775 0102 0DF10F01 		add	r1, sp, #15
+ 776 0106 3046     		mov	r0, r6
+ 777 0108 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 778              	.LVL58:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 779              		.loc 2 125 30 view .LVU169
+ 780 010c 1023     		movs	r3, #16
+ 781              	.LBE159:
+ 782              	.LBE157:
+ 783              	.LBB160:
+ 784              	.LBB161:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 785              		.loc 2 124 23 view .LVU170
+ 786 010e 3946     		mov	r1, r7
+ 787 0110 2846     		mov	r0, r5
+ 788 0112 8DF80F30 		strb	r3, [sp, #15]
+ 789              	.LVL59:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 790              		.loc 2 124 23 view .LVU171
+ 791              	.LBE161:
+ 792              	.LBI160:
+ 122:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 793              		.loc 2 122 10 is_stmt 1 view .LVU172
+ 794              	.LBB162:
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 795              		.loc 2 124 9 view .LVU173
+ 124:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 796              		.loc 2 124 23 is_stmt 0 view .LVU174
+ 797 0116 FFF7FEFF 		bl	dsy_gpio_write
+ 798              	.LVL60:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 799              		.loc 2 125 9 is_stmt 1 view .LVU175
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 800              		.loc 2 125 30 is_stmt 0 view .LVU176
+ 801 011a 6423     		movs	r3, #100
+ 802 011c 0122     		movs	r2, #1
+ 803 011e 0DF10F01 		add	r1, sp, #15
+ 804 0122 3046     		mov	r0, r6
+ 805 0124 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 806              	.LVL61:
+ 125:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 807              		.loc 2 125 30 view .LVU177
+ 808              	.LBE162:
+ 809              	.LBE160:
+ 810              	.LBB163:
+ 811              	.LBI163:
+ 128:../../libDaisy//src/dev/oled_ssd130x.h ****     {
+ 812              		.loc 2 128 10 is_stmt 1 view .LVU178
+ 813              	.LBB164:
+ 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
+ 814              		.loc 2 130 9 view .LVU179
+ 130:../../libDaisy//src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
+ 815              		.loc 2 130 23 is_stmt 0 view .LVU180
+ 816 0128 0121     		movs	r1, #1
+ 817 012a 2846     		mov	r0, r5
+ 818 012c FFF7FEFF 		bl	dsy_gpio_write
+ARM GAS  /tmp/ccG9JeCo.s 			page 27
+
+
+ 819              	.LVL62:
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 820              		.loc 2 131 9 is_stmt 1 view .LVU181
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 821              		.loc 2 131 30 is_stmt 0 view .LVU182
+ 822 0130 8022     		movs	r2, #128
+ 823 0132 4146     		mov	r1, r8
+ 824 0134 6423     		movs	r3, #100
+ 825 0136 3046     		mov	r0, r6
+ 826              	.LBE164:
+ 827              	.LBE163:
+ 828              		.loc 2 283 22 view .LVU183
+ 829 0138 9044     		add	r8, r8, r2
+ 830              	.LVL63:
+ 831              	.LBB166:
+ 832              	.LBB165:
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 833              		.loc 2 131 30 view .LVU184
+ 834 013a FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 835              	.LVL64:
+ 131:../../libDaisy//src/dev/oled_ssd130x.h ****     };
+ 836              		.loc 2 131 30 view .LVU185
+ 837              	.LBE165:
+ 838              	.LBE166:
+ 839              		.loc 2 283 9 is_stmt 1 view .LVU186
+ 840              		.loc 2 283 22 view .LVU187
+ 841 013e B82C     		cmp	r4, #184
+ 842 0140 C7D1     		bne	.L48
+ 843              	.LBE149:
+ 844              	.LBE148:
+ 845              	.LBE147:
+  18:Menu.cpp      **** }
+ 846              		.loc 3 18 1 is_stmt 0 view .LVU188
+ 847 0142 05B0     		add	sp, sp, #20
+ 848              		.cfi_remember_state
+ 849              		.cfi_def_cfa_offset 28
+ 850              		@ sp needed
+ 851 0144 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 852              	.LVL65:
+ 853              	.L46:
+ 854              		.cfi_restore_state
+  18:Menu.cpp      **** }
+ 855              		.loc 3 18 1 view .LVU189
+ 856 0148 05B0     		add	sp, sp, #20
+ 857              		.cfi_remember_state
+ 858              		.cfi_def_cfa_offset 28
+ 859              		@ sp needed
+ 860 014a BDE8F043 		pop	{r4, r5, r6, r7, r8, r9, lr}
+ 861              		.cfi_restore 14
+ 862              		.cfi_restore 9
+ 863              		.cfi_restore 8
+ 864              		.cfi_restore 7
+ 865              		.cfi_restore 6
+ 866              		.cfi_restore 5
+ 867              		.cfi_restore 4
+ 868              		.cfi_def_cfa_offset 0
+ 869              	.LVL66:
+ARM GAS  /tmp/ccG9JeCo.s 			page 28
+
+
+  17:Menu.cpp      ****     display->Update();
+ 870              		.loc 3 17 20 view .LVU190
+ 871 014e 1847     		bx	r3	@ indirect register sibling call
+ 872              	.LVL67:
+ 873              	.L60:
+ 874              		.cfi_restore_state
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+ 875              		.loc 3 12 23 view .LVU191
+ 876 0150 314F     		ldr	r7, .L69+24
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+ 877              		.loc 3 12 39 view .LVU192
+ 878 0152 2846     		mov	r0, r5
+ 879 0154 9047     		blx	r2
+ 880              	.LVL68:
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+ 881              		.loc 3 12 23 view .LVU193
+ 882 0156 A7FB0037 		umull	r3, r7, r7, r0
+ 883              	.LBB167:
+ 884              	.LBB133:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 885              		.loc 4 173 33 view .LVU194
+ 886 015a 2B68     		ldr	r3, [r5]
+ 887 015c DA68     		ldr	r2, [r3, #12]
+ 888              	.LBE133:
+ 889              	.LBE167:
+  12:Menu.cpp      ****     display->SetCursor((display->Width()) / 3, 3);
+ 890              		.loc 3 12 23 view .LVU195
+ 891 015e C7F34F07 		ubfx	r7, r7, #1, #16
+ 892              	.LVL69:
+ 893              	.LBB168:
+ 894              	.LBI130:
+ 171:../../libDaisy//src/hid/disp/display.h ****     {
+ 895              		.loc 4 171 10 is_stmt 1 view .LVU196
+ 896              	.LBB134:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 897              		.loc 4 173 9 view .LVU197
+ 898 0162 4A45     		cmp	r2, r9
+ 899 0164 1BD1     		bne	.L65
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 900              		.loc 4 173 33 is_stmt 0 view .LVU198
+ 901 0166 8020     		movs	r0, #128
+ 902              	.L32:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 903              		.loc 4 173 19 view .LVU199
+ 904 0168 8742     		cmp	r7, r0
+ 905 016a FFF469AF 		bcc	.L33
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 906              		.loc 4 173 44 view .LVU200
+ 907 016e DA68     		ldr	r2, [r3, #12]
+ 908 0170 4A45     		cmp	r2, r9
+ 909 0172 3ED1     		bne	.L66
+ 910 0174 7F27     		movs	r7, #127
+ 911              	.LVL70:
+ 912              		.loc 4 174 34 view .LVU201
+ 913 0176 9B68     		ldr	r3, [r3, #8]
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 914              		.loc 4 173 19 view .LVU202
+ARM GAS  /tmp/ccG9JeCo.s 			page 29
+
+
+ 915 0178 AF80     		strh	r7, [r5, #4]	@ movhi
+ 916              		.loc 4 174 9 is_stmt 1 view .LVU203
+ 917 017a 224F     		ldr	r7, .L69+4
+ 918 017c BB42     		cmp	r3, r7
+ 919 017e 3FF465AF 		beq	.L37
+ 920              	.LVL71:
+ 921              	.L35:
+ 922              		.loc 4 174 33 is_stmt 0 view .LVU204
+ 923 0182 2846     		mov	r0, r5
+ 924 0184 9847     		blx	r3
+ 925              	.LVL72:
+ 926              		.loc 4 174 19 view .LVU205
+ 927 0186 0328     		cmp	r0, #3
+ 928 0188 3FF660AF 		bhi	.L37
+ 929              		.loc 4 174 46 view .LVU206
+ 930 018c 2B68     		ldr	r3, [r5]
+ 931 018e 9B68     		ldr	r3, [r3, #8]
+ 932 0190 BB42     		cmp	r3, r7
+ 933 0192 23D1     		bne	.L67
+ 934 0194 3F23     		movs	r3, #63
+ 935 0196 5AE7     		b	.L36
+ 936              	.L29:
+ 937              		.loc 4 174 46 view .LVU207
+ 938              	.LBE134:
+ 939              	.LBE168:
+  11:Menu.cpp      ****     display->Fill(!this->colorScheme);
+ 940              		.loc 3 11 18 view .LVU208
+ 941 0198 1946     		mov	r1, r3
+ 942 019a 9047     		blx	r2
+ 943              	.LVL73:
+ 944 019c 47E7     		b	.L30
+ 945              	.LVL74:
+ 946              	.L65:
+ 947              	.LBB169:
+ 948              	.LBB135:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 949              		.loc 4 173 32 view .LVU209
+ 950 019e 2846     		mov	r0, r5
+ 951 01a0 9047     		blx	r2
+ 952              	.LVL75:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 953              		.loc 4 173 44 view .LVU210
+ 954 01a2 2B68     		ldr	r3, [r5]
+ 955 01a4 E0E7     		b	.L32
+ 956              	.LVL76:
+ 957              	.L63:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 958              		.loc 4 173 44 view .LVU211
+ 959              	.LBE135:
+ 960              	.LBE169:
+ 961              	.LBB170:
+ 962              	.LBB142:
+ 963              		.loc 4 174 33 view .LVU212
+ 964 01a6 2846     		mov	r0, r5
+ 965 01a8 9847     		blx	r3
+ 966              	.LVL77:
+ 967 01aa 6DE7     		b	.L43
+ARM GAS  /tmp/ccG9JeCo.s 			page 30
+
+
+ 968              	.L62:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 969              		.loc 4 173 32 view .LVU213
+ 970 01ac 2846     		mov	r0, r5
+ 971 01ae 9047     		blx	r2
+ 972              	.LVL78:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 973              		.loc 4 173 19 view .LVU214
+ 974 01b0 0328     		cmp	r0, #3
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 975              		.loc 4 173 44 view .LVU215
+ 976 01b2 2B68     		ldr	r3, [r5]
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 977              		.loc 4 173 19 view .LVU216
+ 978 01b4 3FF661AF 		bhi	.L54
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 979              		.loc 4 173 44 view .LVU217
+ 980 01b8 DA68     		ldr	r2, [r3, #12]
+ 981 01ba 4A45     		cmp	r2, r9
+ 982 01bc 13D1     		bne	.L68
+ 983 01be 7F22     		movs	r2, #127
+ 984 01c0 5CE7     		b	.L40
+ 985              	.LVL79:
+ 986              	.L61:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 987              		.loc 4 173 44 view .LVU218
+ 988              	.LBE142:
+ 989              	.LBE170:
+  14:Menu.cpp      ****     display->SetCursor(3, (this->display->Height()) - 10);
+ 990              		.loc 3 14 49 view .LVU219
+ 991 01c2 2846     		mov	r0, r5
+ 992 01c4 9047     		blx	r2
+ 993              	.LVL80:
+  14:Menu.cpp      ****     display->SetCursor(3, (this->display->Height()) - 10);
+ 994              		.loc 3 14 23 view .LVU220
+ 995 01c6 0A38     		subs	r0, r0, #10
+ 996              	.LBB171:
+ 997              	.LBB143:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 998              		.loc 4 173 33 view .LVU221
+ 999 01c8 2B68     		ldr	r3, [r5]
+ 1000              	.LBE143:
+ 1001              	.LBE171:
+  14:Menu.cpp      ****     display->SetCursor(3, (this->display->Height()) - 10);
+ 1002              		.loc 3 14 23 view .LVU222
+ 1003 01ca 1FFA80F8 		uxth	r8, r0
+ 1004              	.LVL81:
+  14:Menu.cpp      ****     display->SetCursor(3, (this->display->Height()) - 10);
+ 1005              		.loc 3 14 23 view .LVU223
+ 1006 01ce 50E7     		b	.L39
+ 1007              	.LVL82:
+ 1008              	.L64:
+ 1009              	.LBB172:
+ 1010              	.LBB144:
+ 1011              		.loc 4 174 45 view .LVU224
+ 1012 01d0 2846     		mov	r0, r5
+ 1013 01d2 9847     		blx	r3
+ARM GAS  /tmp/ccG9JeCo.s 			page 31
+
+
+ 1014              	.LVL83:
+ 1015              		.loc 4 174 19 view .LVU225
+ 1016 01d4 0138     		subs	r0, r0, #1
+ 1017 01d6 1FFA80F8 		uxth	r8, r0
+ 1018 01da 5EE7     		b	.L44
+ 1019              	.LVL84:
+ 1020              	.L67:
+ 1021              		.loc 4 174 19 view .LVU226
+ 1022              	.LBE144:
+ 1023              	.LBE172:
+ 1024              	.LBB173:
+ 1025              	.LBB136:
+ 1026              		.loc 4 174 45 view .LVU227
+ 1027 01dc 2846     		mov	r0, r5
+ 1028 01de 9847     		blx	r3
+ 1029              	.LVL85:
+ 1030              		.loc 4 174 19 view .LVU228
+ 1031 01e0 0138     		subs	r0, r0, #1
+ 1032 01e2 83B2     		uxth	r3, r0
+ 1033 01e4 33E7     		b	.L36
+ 1034              	.LVL86:
+ 1035              	.L68:
+ 1036              		.loc 4 174 19 view .LVU229
+ 1037              	.LBE136:
+ 1038              	.LBE173:
+ 1039              	.LBB174:
+ 1040              	.LBB145:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1041              		.loc 4 173 43 view .LVU230
+ 1042 01e6 2846     		mov	r0, r5
+ 1043 01e8 9047     		blx	r2
+ 1044              	.LVL87:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1045              		.loc 4 173 19 view .LVU231
+ 1046 01ea 0138     		subs	r0, r0, #1
+ 1047              		.loc 4 174 34 view .LVU232
+ 1048 01ec 2B68     		ldr	r3, [r5]
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1049              		.loc 4 173 19 view .LVU233
+ 1050 01ee 82B2     		uxth	r2, r0
+ 1051 01f0 44E7     		b	.L40
+ 1052              	.LVL88:
+ 1053              	.L66:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1054              		.loc 4 173 19 view .LVU234
+ 1055              	.LBE145:
+ 1056              	.LBE174:
+ 1057              	.LBB175:
+ 1058              	.LBB137:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1059              		.loc 4 173 43 view .LVU235
+ 1060 01f2 2846     		mov	r0, r5
+ 1061 01f4 9047     		blx	r2
+ 1062              	.LVL89:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1063              		.loc 4 173 19 view .LVU236
+ 1064 01f6 0138     		subs	r0, r0, #1
+ARM GAS  /tmp/ccG9JeCo.s 			page 32
+
+
+ 1065              		.loc 4 174 34 view .LVU237
+ 1066 01f8 2B68     		ldr	r3, [r5]
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1067              		.loc 4 173 19 view .LVU238
+ 1068 01fa 87B2     		uxth	r7, r0
+ 1069              	.LVL90:
+ 173:../../libDaisy//src/hid/disp/display.h ****         currentY_ = (y >= Height()) ? Height() - 1 : y;
+ 1070              		.loc 4 173 19 view .LVU239
+ 1071 01fc 20E7     		b	.L33
+ 1072              	.L70:
+ 1073 01fe 00BF     		.align	2
+ 1074              	.L69:
+ 1075 0200 00000000 		.word	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillE
+ 1076 0204 00000000 		.word	_ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Heig
+ 1077 0208 00000000 		.word	Font_7x10
+ 1078 020c 00000000 		.word	Font_6x8
+ 1079 0210 00000000 		.word	.LC0
+ 1080 0214 00000000 		.word	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Updat
+ 1081 0218 ABAAAAAA 		.word	-1431655765
+ 1082 021c 00000000 		.word	_ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5Widt
+ 1083              	.LBE137:
+ 1084              	.LBE175:
+ 1085              		.cfi_endproc
+ 1086              	.LFE2555:
+ 1088              		.section	.text._ZN4Menu8drawMenuEiPKc,"ax",%progbits
+ 1089              		.align	1
+ 1090              		.p2align 2,,3
+ 1091              		.global	_ZN4Menu8drawMenuEiPKc
+ 1092              		.syntax unified
+ 1093              		.thumb
+ 1094              		.thumb_func
+ 1096              	_ZN4Menu8drawMenuEiPKc:
+ 1097              	.LVL91:
+ 1098              	.LFB2554:
+   5:Menu.cpp      **** {
+ 1099              		.loc 3 5 1 is_stmt 1 view -0
+ 1100              		.cfi_startproc
+ 1101              		@ args = 0, pretend = 0, frame = 0
+ 1102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1103              		@ link register save eliminated.
+   6:Menu.cpp      ****     this->drawPageOne(octave, title);
+ 1104              		.loc 3 6 5 view .LVU241
+   6:Menu.cpp      ****     this->drawPageOne(octave, title);
+ 1105              		.loc 3 6 22 is_stmt 0 view .LVU242
+ 1106 0000 FFF7FEBF 		b	_ZN4Menu11drawPageOneEiPKc
+ 1107              	.LVL92:
+   6:Menu.cpp      ****     this->drawPageOne(octave, title);
+ 1108              		.loc 3 6 22 view .LVU243
+ 1109              		.cfi_endproc
+ 1110              	.LFE2554:
+ 1112              		.text
+ 1113              	.Letext0:
+ 1114              		.file 5 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/machine/_default_types.h"
+ 1115              		.file 6 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/_stdint.h"
+ 1116              		.file 7 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/stdint.h"
+ 1117              		.file 8 "/home/vinfernandes/Projects/daisy/gcc-arm/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h"
+ 1118              		.file 9 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cmath"
+ARM GAS  /tmp/ccG9JeCo.s 			page 33
+
+
+ 1119              		.file 10 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/std_abs.
+ 1120              		.file 11 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdlib"
+ 1121              		.file 12 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdint"
+ 1122              		.file 13 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/type_traits"
+ 1123              		.file 14 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/debug/debug.h
+ 1124              		.file 15 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/arm-none-eabi
+ 1125              		.file 16 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/algorith
+ 1126              		.file 17 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/stl_pair
+ 1127              		.file 18 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/exceptio
+ 1128              		.file 19 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdarg"
+ 1129              		.file 20 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstdio"
+ 1130              		.file 21 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/cstring"
+ 1131              		.file 22 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/bits/predefin
+ 1132              		.file 23 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/_types.h"
+ 1133              		.file 24 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/reent.h"
+ 1134              		.file 25 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/sys/lock.h"
+ 1135              		.file 26 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/math.h"
+ 1136              		.file 27 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/stdlib.h"
+ 1137              		.file 28 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/math.h"
+ 1138              		.file 29 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/c++/10.3.1/stdlib.h"
+ 1139              		.file 30 "../../libDaisy//src/daisy_core.h"
+ 1140              		.file 31 "../../libDaisy//src/per/spi.h"
+ 1141              		.file 32 "../../libDaisy//src/hid/disp/graphics_common.h"
+ 1142              		.file 33 "../../libDaisy//src/util/wav_format.h"
+ 1143              		.file 34 "../../libDaisy//src/dev/max11300.h"
+ 1144              		.file 35 "../../libDaisy//src/daisy_seed.h"
+ 1145              		.file 36 "../../libDaisy//src/per/gpio.h"
+ 1146              		.file 37 "/home/vinfernandes/Projects/daisy/gcc-arm/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h"
+ 1147              		.file 38 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/stdio.h"
+ 1148              		.file 39 "../../libDaisy//src/util/oled_fonts.h"
+ 1149              		.file 40 "/home/vinfernandes/Projects/daisy/gcc-arm/arm-none-eabi/include/string.h"
+ 1150              		.file 41 "Menu.h"
+ 1151              		.file 42 "<built-in>"
+ 1152              		.file 43 "../../libDaisy//src/dev/sr_595.h"
+ARM GAS  /tmp/ccG9JeCo.s 			page 34
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Menu.cpp
-     /tmp/ccNiobx1.s:19     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:0000000000000000 $t
-     /tmp/ccNiobx1.s:26     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:0000000000000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb
-     /tmp/ccNiobx1.s:59     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:0000000000000000 $t
-     /tmp/ccNiobx1.s:66     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:0000000000000000 _ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv
-     /tmp/ccNiobx1.s:83     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:0000000000000000 $t
-     /tmp/ccNiobx1.s:90     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:0000000000000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv
-     /tmp/ccNiobx1.s:277    .rodata._ZN4Menu8drawMenuEv.str1.4:0000000000000000 $d
-     /tmp/ccNiobx1.s:281    .text._ZN4Menu8drawMenuEv:0000000000000000 $t
-     /tmp/ccNiobx1.s:288    .text._ZN4Menu8drawMenuEv:0000000000000000 _ZN4Menu8drawMenuEv
-     /tmp/ccNiobx1.s:654    .text._ZN4Menu8drawMenuEv:0000000000000138 $d
+     /tmp/ccG9JeCo.s:19     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:0000000000000000 $t
+     /tmp/ccG9JeCo.s:26     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:0000000000000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb
+     /tmp/ccG9JeCo.s:59     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:0000000000000000 $t
+     /tmp/ccG9JeCo.s:66     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:0000000000000000 _ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv
+     /tmp/ccG9JeCo.s:83     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv:0000000000000000 $t
+     /tmp/ccG9JeCo.s:90     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv:0000000000000000 _ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv
+     /tmp/ccG9JeCo.s:107    .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:0000000000000000 $t
+     /tmp/ccG9JeCo.s:114    .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:0000000000000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv
+     /tmp/ccG9JeCo.s:301    .text._ZN4Menu9drawMeterEi:0000000000000000 $t
+     /tmp/ccG9JeCo.s:308    .text._ZN4Menu9drawMeterEi:0000000000000000 _ZN4Menu9drawMeterEi
+     /tmp/ccG9JeCo.s:492    .text._ZN4Menu9drawMeterEi:000000000000009c $d
+     /tmp/ccG9JeCo.s:502    .rodata._ZN4Menu11drawPageOneEiPKc.str1.4:0000000000000000 $d
+     /tmp/ccG9JeCo.s:506    .text._ZN4Menu11drawPageOneEiPKc:0000000000000000 $t
+     /tmp/ccG9JeCo.s:513    .text._ZN4Menu11drawPageOneEiPKc:0000000000000000 _ZN4Menu11drawPageOneEiPKc
+     /tmp/ccG9JeCo.s:1075   .text._ZN4Menu11drawPageOneEiPKc:0000000000000200 $d
+     /tmp/ccG9JeCo.s:1089   .text._ZN4Menu8drawMenuEiPKc:0000000000000000 $t
+     /tmp/ccG9JeCo.s:1096   .text._ZN4Menu8drawMenuEiPKc:0000000000000000 _ZN4Menu8drawMenuEiPKc
 
 UNDEFINED SYMBOLS
 memset
 dsy_gpio_write
 _ZN5daisy9SpiHandle16BlockingTransmitEPhjm
 Font_7x10
+Font_6x8

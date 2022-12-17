@@ -10,9 +10,13 @@ class Menu
     public:
     // variables
     OledDisplay<SSD130x4WireSpi128x64Driver>* display;
+    bool colorScheme = true;
+    const char* title;
     
     //functions
-    void drawMenu();
+    void drawMenu(int octave, const char* title);
+    void drawPageOne(int octave, const char* title);
+    void drawMeter(int activeItem);
 }
 
 
