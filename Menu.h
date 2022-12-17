@@ -7,16 +7,21 @@ using namespace daisy;
 
 class Menu
 {
-    public:
+  public:
     // variables
     OledDisplay<SSD130x4WireSpi128x64Driver>* display;
-    bool colorScheme = true;
-    const char* title;
-    
+    bool                                      colorScheme = true;
+    const char*                               title;
+
     //functions
-    void drawMenu(int octave, const char* title);
-    void drawPageOne(int octave, const char* title);
+    void drawMenu(int octave, const char* title, int shape);
+    void drawPageOne(int octave, const char* title, int shape);
     void drawMeter(int activeItem);
+    void drawWaveSelector(int shape);
+    void drawSquareWaveIcon(int x, int y, int size, bool color);
+    void drawTriangleWaveIcon(int x, int y, int size, bool color);
+    void drawSawWaveIcon(int x, int y, int size, bool color);
+    void selector(int index, bool color);
 }
 
 

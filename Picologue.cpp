@@ -38,7 +38,7 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
     float sig;
     for(size_t i = 0; i < size; i += 2)
     {
-        sig = osc1.Process() + osc2.Process();
+        sig        = osc1.Process() + osc2.Process();
         out[i]     = sig * 0.5f;
         out[i + 1] = sig * 0.5f;
     }
@@ -70,7 +70,8 @@ int main(void)
         encoderLeft.Debounce();
         encoderRight.Debounce();
         menu.drawMenu((activeVoice) ? osc1_octave : osc2_octave,
-                      (activeVoice) ? "VCO I" : "VCO II");   
+                      (activeVoice) ? "VCO_1" : "VCO_2",
+                      2);
         osc1_freq = 40.0f * powf(2.0f, osc1_octave);
         osc1.SetFreq(osc1_freq);
         osc2_freq = 40.0f * powf(2.0f, osc2_octave);
