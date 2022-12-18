@@ -22,6 +22,8 @@ Encoder       encoderLeft;
 Encoder       encoderRight;
 Oscillator    osc1;
 Oscillator    osc2;
+Switch        leftButton;
+Switch        rightButton;
 
 bool  colorScheme = true;
 int   osc1_octave = 1;
@@ -29,6 +31,7 @@ int   osc2_octave = 1;
 float osc1_freq   = 20.0f;
 float osc2_freq   = 40.0f;
 bool  activeVoice = true;
+int   indexPage1  = 0;
 
 
 void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
@@ -64,14 +67,18 @@ int main(void)
     osc2.Init(hw.AudioSampleRate());
     osc2.SetWaveform(osc2.WAVE_SAW);
     osc2.SetFreq(osc2_freq);
+    leftButton.Init(hw.GetPin(26), hw.AudioSampleRate());
+    rightButton.Init(hw.GetPin(27), hw.AudioSampleRate());
     hw.StartAudio(AudioCallback);
     while(1)
     {
         encoderLeft.Debounce();
         encoderRight.Debounce();
+        leftButton.Debounce();
+        rightButton.Debounce();
         menu.drawMenu((activeVoice) ? osc1_octave : osc2_octave,
                       (activeVoice) ? "VCO_1" : "VCO_2",
-                      2);
+                      indexPage1);
         osc1_freq = 40.0f * powf(2.0f, osc1_octave);
         osc1.SetFreq(osc1_freq);
         osc2_freq = 40.0f * powf(2.0f, osc2_octave);
@@ -106,5 +113,28 @@ int main(void)
                 osc2_octave = 4;
             }
         }
+        if(leftButton.RisingEdge())
+        {
+            if(indexPage1 < 1)
+            {
+                indexPage1++;
+            }
+            else
+            {
+                indexPage1 = 0;
+            }
+        }
+        if(rightButton.RisingEdge())
+        {
+            if(indexPage1 > 0)
+            {
+                indexPage1--;
+            }
+            else
+            {
+                indexPage1 = 1;
+            }
+        }
+
     }
 }

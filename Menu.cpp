@@ -18,7 +18,7 @@ void Menu::drawPageOne(int octave, const char* title, int shape)
     display->SetCursor(27, (this->display->Height()) - 12);
     display->WriteString("Wave", Font_6x8, this->colorScheme);
     this->drawWaveSelector(shape);
-    this->selector(1, this->colorScheme);
+    this->selector(shape, this->colorScheme);
     display->Update();
 }
 
