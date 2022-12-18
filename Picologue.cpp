@@ -30,6 +30,8 @@ int   osc1_octave = 1;
 int   osc2_octave = 1;
 float osc1_freq   = 20.0f;
 float osc2_freq   = 40.0f;
+float osc1_shape  = 0;
+float osc2_shape  = 0;
 bool  activeVoice = true;
 int   indexPage1  = 0;
 
@@ -78,7 +80,8 @@ int main(void)
         rightButton.Debounce();
         menu.drawMenu((activeVoice) ? osc1_octave : osc2_octave,
                       (activeVoice) ? "VCO_1" : "VCO_2",
-                      indexPage1);
+                      indexPage1,
+                      (activeVoice) ? osc1_shape : osc2_shape);
         osc1_freq = 40.0f * powf(2.0f, osc1_octave);
         osc1.SetFreq(osc1_freq);
         osc2_freq = 40.0f * powf(2.0f, osc2_octave);
@@ -89,30 +92,87 @@ int main(void)
             activeVoice      = !activeVoice;
         }
 
-        if(activeVoice)
+        if(indexPage1 == 0)
         {
-            osc1_octave += encoderRight.Increment();
-            if(osc1_octave > 4)
+            if(activeVoice)
             {
-                osc1_octave = 1;
+                osc1_octave += encoderRight.Increment();
+                if(osc1_octave > 4)
+                {
+                    osc1_octave = 1;
+                }
+                if(osc1_octave < 1)
+                {
+                    osc1_octave = 4;
+                }
             }
-            if(osc1_octave < 1)
+            else
             {
-                osc1_octave = 4;
+                osc2_octave += encoderRight.Increment();
+                if(osc2_octave > 4)
+                {
+                    osc2_octave = 1;
+                }
+                if(osc2_octave < 1)
+                {
+                    osc2_octave = 4;
+                }
             }
         }
-        else
-        {
-            osc2_octave += encoderRight.Increment();
-            if(osc2_octave > 4)
+        if (indexPage1 == 1){
+            if(activeVoice)
             {
-                osc2_octave = 1;
+                osc1_shape += encoderRight.Increment();
+                if(osc1_shape > 2)
+                {
+                    osc1_shape = 0;
+                }
+                if(osc1_shape < 0)
+                {
+                    osc1_shape = 2;
+                }
+                switch((int)osc1_shape)
+                {
+                    case 0:
+                        osc1.SetWaveform(osc1.WAVE_SAW);
+                        break;
+                    case 1:
+                        osc1.SetWaveform(osc1.WAVE_TRI);
+                        break;
+                    case 2:
+                        osc1.SetWaveform(osc1.WAVE_SQUARE);
+                        break;
+
+                }
             }
-            if(osc2_octave < 1)
+            else
             {
-                osc2_octave = 4;
+                osc2_shape += encoderRight.Increment();
+                if(osc2_shape > 2)
+                {
+                    osc2_shape = 0;
+                }
+                if(osc2_shape < 0)
+                {
+                    osc2_shape = 2;
+                }
+                switch((int)osc2_shape)
+                {
+                    case 0:
+                        osc2.SetWaveform(osc2.WAVE_SAW);
+                        break;
+                    case 1:
+                        osc2.SetWaveform(osc2.WAVE_TRI);
+                        break;
+                    case 2:
+                        osc2.SetWaveform(osc2.WAVE_SQUARE);
+                        break;
+                }
             }
         }
+
+
+        //Button
         if(leftButton.RisingEdge())
         {
             if(indexPage1 < 1)
@@ -135,6 +195,5 @@ int main(void)
                 indexPage1 = 1;
             }
         }
-
     }
 }

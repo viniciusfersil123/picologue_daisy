@@ -1,13 +1,16 @@
 #include "Menu.h"
 
 
-void Menu::drawMenu(int octave, const char* title, int shape)
+void Menu::drawMenu(int octave, const char* title, int indexPageOne, int shape)
 {
-    this->drawPageOne(octave, title, shape);
+    this->drawPageOne(octave, title, indexPageOne, shape);
 }
 
 //UI Pages
-void Menu::drawPageOne(int octave, const char* title, int shape)
+void Menu::drawPageOne(int         octave,
+                       const char* title,
+                       int         indexPageOne,
+                       int         shape)
 {
     display->Fill(!this->colorScheme);
     display->SetCursor(display->Width() - 40, 7);
@@ -18,7 +21,7 @@ void Menu::drawPageOne(int octave, const char* title, int shape)
     display->SetCursor(27, (this->display->Height()) - 12);
     display->WriteString("Wave", Font_6x8, this->colorScheme);
     this->drawWaveSelector(shape);
-    this->selector(shape, this->colorScheme);
+    this->selector(indexPageOne, this->colorScheme);
     display->Update();
 }
 
@@ -56,9 +59,42 @@ void Menu::drawWaveSelector(int shape)
     int x    = 34;
     int y    = (this->display->Height()) - 26;
     int size = 8;
-    this->drawSawWaveIcon(x, y, size, this->colorScheme);
-    this->drawTriangleWaveIcon(x, y - 15, size, this->colorScheme);
-    this->drawSquareWaveIcon(x, y - 30, size, this->colorScheme);
+    switch(shape)
+    {
+        case 0:
+            this->display->DrawRect(x - size / 2,
+                                    y,
+                                    x + size + (size / 2),
+                                    y + size,
+                                    this->colorScheme,
+                                    true);
+            this->drawSawWaveIcon(x, y, size, !this->colorScheme);
+            this->drawTriangleWaveIcon(x, y - 15, size, this->colorScheme);
+            this->drawSquareWaveIcon(x, y - 30, size, this->colorScheme);
+            break;
+        case 1:
+            this->display->DrawRect(x - size / 2,
+                                    y - 15,
+                                    x + size + (size / 2),
+                                    y + size - 15,
+                                    this->colorScheme,
+                                    true);
+            this->drawSawWaveIcon(x, y, size, this->colorScheme);
+            this->drawTriangleWaveIcon(x, y - 15, size, !this->colorScheme);
+            this->drawSquareWaveIcon(x, y - 30, size, this->colorScheme);
+            break;
+        case 2:
+            this->display->DrawRect(x - size / 2,
+                                    y - 30,
+                                    x + size + (size / 2),
+                                    y + size - 30,
+                                    this->colorScheme,
+                                    true);
+            this->drawSawWaveIcon(x, y, size, this->colorScheme);
+            this->drawTriangleWaveIcon(x, y - 15, size, this->colorScheme);
+            this->drawSquareWaveIcon(x, y - 30, size, !this->colorScheme);
+            break;
+    }
 }
 
 void Menu::selector(int index, bool color)
