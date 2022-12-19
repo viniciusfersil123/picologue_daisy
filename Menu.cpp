@@ -1,16 +1,21 @@
 #include "Menu.h"
 
 
-void Menu::drawMenu(int octave, const char* title, int indexPageOne, int shape)
+void Menu::drawMenu(int         octave,
+                    const char* title,
+                    int         indexPageOne,
+                    int         shape,
+                    int         pitch)
 {
-    this->drawPageOne(octave, title, indexPageOne, shape);
+    this->drawPageOne(octave, title, indexPageOne, shape, pitch);
 }
 
 //UI Pages
 void Menu::drawPageOne(int         octave,
                        const char* title,
                        int         indexPageOne,
-                       int         shape)
+                       int         shape,
+                       int         pitch)
 {
     display->Fill(!this->colorScheme);
     display->SetCursor(display->Width() - 40, 7);
@@ -21,6 +26,9 @@ void Menu::drawPageOne(int         octave,
     display->SetCursor(27, (this->display->Height()) - 12);
     display->WriteString("Wave", Font_6x8, this->colorScheme);
     this->drawWaveSelector(shape);
+    display->SetCursor(64, 20);
+    display->WriteString("Pitch", Font_6x8, this->colorScheme);
+    this->drawHSlider(64, 30, 60, 8, pitch, this->colorScheme);
     this->selector(indexPageOne, this->colorScheme);
     display->Update();
 }
@@ -114,7 +122,21 @@ void Menu::selector(int index, bool color)
                                     52,
                                     this->display->Height() - 2,
                                     color);
+            break;
+        case 2: this->display->DrawRect(62, 16, 96, 28, color, false); break;
     }
+}
+
+void Menu::drawHSlider(int  x,
+                       int  y,
+                       int  width,
+                       int  height,
+                       int  value,
+                       bool color)
+{
+    this->display->DrawRect(x, y, x + width, y + height, this->colorScheme);
+    this->display->DrawRect(
+        x + 1, y + 1, x + value, y + height - 1, color, true);
 }
 
 //UI icons

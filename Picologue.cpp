@@ -32,6 +32,8 @@ float osc1_freq   = 20.0f;
 float osc2_freq   = 40.0f;
 float osc1_shape  = 0;
 float osc2_shape  = 0;
+float osc1_pitch  = 0;
+float osc2_pitch  = 0;
 bool  activeVoice = true;
 int   indexPage1  = 0;
 
@@ -81,7 +83,8 @@ int main(void)
         menu.drawMenu((activeVoice) ? osc1_octave : osc2_octave,
                       (activeVoice) ? "VCO_1" : "VCO_2",
                       indexPage1,
-                      (activeVoice) ? osc1_shape : osc2_shape);
+                      (activeVoice) ? osc1_shape : osc2_shape,
+                      (activeVoice) ? osc1_pitch : osc2_pitch);
         osc1_freq = 40.0f * powf(2.0f, osc1_octave);
         osc1.SetFreq(osc1_freq);
         osc2_freq = 40.0f * powf(2.0f, osc2_octave);
@@ -119,7 +122,8 @@ int main(void)
                 }
             }
         }
-        if (indexPage1 == 1){
+        if(indexPage1 == 1)
+        {
             if(activeVoice)
             {
                 osc1_shape += encoderRight.Increment();
@@ -133,16 +137,9 @@ int main(void)
                 }
                 switch((int)osc1_shape)
                 {
-                    case 0:
-                        osc1.SetWaveform(osc1.WAVE_SAW);
-                        break;
-                    case 1:
-                        osc1.SetWaveform(osc1.WAVE_TRI);
-                        break;
-                    case 2:
-                        osc1.SetWaveform(osc1.WAVE_SQUARE);
-                        break;
-
+                    case 0: osc1.SetWaveform(osc1.WAVE_SAW); break;
+                    case 1: osc1.SetWaveform(osc1.WAVE_TRI); break;
+                    case 2: osc1.SetWaveform(osc1.WAVE_SQUARE); break;
                 }
             }
             else
@@ -158,24 +155,46 @@ int main(void)
                 }
                 switch((int)osc2_shape)
                 {
-                    case 0:
-                        osc2.SetWaveform(osc2.WAVE_SAW);
-                        break;
-                    case 1:
-                        osc2.SetWaveform(osc2.WAVE_TRI);
-                        break;
-                    case 2:
-                        osc2.SetWaveform(osc2.WAVE_SQUARE);
-                        break;
+                    case 0: osc2.SetWaveform(osc2.WAVE_SAW); break;
+                    case 1: osc2.SetWaveform(osc2.WAVE_TRI); break;
+                    case 2: osc2.SetWaveform(osc2.WAVE_SQUARE); break;
                 }
             }
         }
 
-
+        if(indexPage1 == 2)
+        {
+            if(activeVoice)
+            {
+                osc1_freq += encoderRight.Increment();
+                if(osc1_pitch > 100)
+                {
+                    osc1_pitch = 100;
+                }
+                if(osc1_pitch < 0)
+                {
+                    osc1_pitch = 0;
+                }
+                osc1_pitch += encoderRight.Increment();
+            }
+            else
+            {
+                osc2.SetFreq(osc2_freq + 10 * encoderRight.Increment());
+                if(osc2_pitch > 100)
+                {
+                    osc2_pitch = 100;
+                }
+                if(osc2_pitch < 0)
+                {
+                    osc2_pitch = 0;
+                }
+                osc2_pitch += encoderRight.Increment();
+            }
+        }
         //Button
         if(leftButton.RisingEdge())
         {
-            if(indexPage1 < 1)
+            if(indexPage1 < 2)
             {
                 indexPage1++;
             }
@@ -192,7 +211,7 @@ int main(void)
             }
             else
             {
-                indexPage1 = 1;
+                indexPage1 = 2;
             }
         }
     }
