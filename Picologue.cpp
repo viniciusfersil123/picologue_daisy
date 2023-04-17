@@ -15,21 +15,23 @@ using namespace daisysp;
 */
 using MyOledDisplay = OledDisplay<SSD130x4WireSpi128x64Driver>;
 
-DaisySeed     hw;
-MyOledDisplay display;
-Menu          menu;
-Encoder       encoderLeft;
-Encoder       encoderRight;
-Oscillator    osc1;
-Oscillator    osc2;
-Switch        leftButton;
-Switch        rightButton;
+DaisySeed                              hw;
+MyOledDisplay                          display;
+Menu                                   menu;
+Encoder                                encoderLeft;
+Encoder                                encoderRight;
+Oscillator                             osc1;
+Oscillator                             osc2;
+Switch                                 leftButton;
+Switch                                 rightButton;
+MidiHandler<MidiUartTransport>         midi;
+MidiHandler<MidiUartTransport>::Config midi_cfg;
 
 bool  colorScheme = true;
 int   osc1_octave = 1;
 int   osc2_octave = 1;
-float osc1_freq   = 20.0f;
-float osc2_freq   = 40.0f;
+float osc1_freq   = 0;
+float osc2_freq   = 0;
 float osc1_shape  = 0;
 float osc2_shape  = 0;
 float osc1_pitch  = 0;
@@ -51,9 +53,40 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
     }
 }
 
+void HandleMidiMessage(MidiEvent m)
+{
+    switch(m.type)
+    {
+        case NoteOn:
+        {
+            NoteOnEvent p = m.AsNoteOn();
+            if(m.data[1] != 0)
+            {
+                p = m.AsNoteOn();
+                osc1.SetFreq(mtof(p.note + (osc1_octave * 12)));
+                osc2.SetFreq(mtof(p.note + (osc2_octave * 12)));
+                osc1.SetAmp((1));
+                osc2.SetAmp((1));
+            }
+        }
+        break;
+        case NoteOff:
+        {
+            if(m.data[1] != 0)
+            {
+                osc1.SetAmp(0);
+                osc2.SetAmp(0);
+            }
+        }
+        default: break;
+    }
+}
+
+
 int main(void)
 {
     hw.Init();
+    hw.usb_handle.Init(UsbHandle::FS_INTERNAL);
     /** Configure the Display */
     MyOledDisplay::Config disp_cfg;
     disp_cfg.driver_config.transport_config.pin_config.dc    = hw.GetPin(9);
@@ -67,15 +100,19 @@ int main(void)
     menu.display = &display;
     osc1.Init(hw.AudioSampleRate());
     osc1.SetWaveform(osc1.WAVE_SAW);
-    osc1.SetFreq(osc1_freq);
+    osc1.SetAmp(0);
     osc2.Init(hw.AudioSampleRate());
     osc2.SetWaveform(osc2.WAVE_SAW);
-    osc2.SetFreq(osc2_freq);
+    osc2.SetAmp(0);
     leftButton.Init(hw.GetPin(26), hw.AudioSampleRate());
     rightButton.Init(hw.GetPin(27), hw.AudioSampleRate());
     hw.StartAudio(AudioCallback);
+    midi.Init(midi_cfg);
+    midi.StartReceive();
+
     while(1)
     {
+        midi.Listen();
         encoderLeft.Debounce();
         encoderRight.Debounce();
         leftButton.Debounce();
@@ -85,10 +122,6 @@ int main(void)
                       indexPage1,
                       (activeVoice) ? osc1_shape : osc2_shape,
                       (activeVoice) ? osc1_pitch : osc2_pitch);
-        osc1_freq = 40.0f * powf(2.0f, osc1_octave);
-        osc1.SetFreq(osc1_freq);
-        osc2_freq = 40.0f * powf(2.0f, osc2_octave);
-        osc2.SetFreq(osc2_freq);
         if(encoderLeft.RisingEdge())
         {
             menu.colorScheme = !menu.colorScheme;
@@ -179,7 +212,7 @@ int main(void)
             }
             else
             {
-                osc2.SetFreq(osc2_freq + 10 * encoderRight.Increment());
+                osc2_freq += encoderRight.Increment();
                 if(osc2_pitch > 100)
                 {
                     osc2_pitch = 100;
@@ -213,6 +246,10 @@ int main(void)
             {
                 indexPage1 = 2;
             }
+        }
+        if(midi.HasEvents())
+        {
+            HandleMidiMessage(midi.PopEvent());
         }
     }
 }
