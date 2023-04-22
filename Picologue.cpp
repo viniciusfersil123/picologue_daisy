@@ -15,13 +15,23 @@ using namespace daisysp;
 */
 using MyOledDisplay = OledDisplay<SSD130x4WireSpi128x64Driver>;
 
+const int voice_number = 32;
+
+struct voice
+{
+    Oscillator osc;
+    int        mNoteNumber;
+    int        mVelocity;
+    bool       isActive;
+};
+
 DaisySeed                              hw;
 MyOledDisplay                          display;
 Menu                                   menu;
 Encoder                                encoderLeft;
 Encoder                                encoderRight;
-Oscillator                             osc1;
-Oscillator                             osc2;
+voice                                  voice1[voice_number];
+voice                                  voice2[voice_number];
 Switch                                 leftButton;
 Switch                                 rightButton;
 MidiHandler<MidiUartTransport>         midi;
@@ -38,18 +48,44 @@ float osc1_pitch  = 0;
 float osc2_pitch  = 0;
 bool  activeVoice = true;
 int   indexPage1  = 0;
-
+float sig         = 0;
 
 void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
                    AudioHandle::InterleavingOutputBuffer out,
                    size_t                                size)
 {
-    float sig;
     for(size_t i = 0; i < size; i += 2)
     {
-        sig        = osc1.Process() + osc2.Process();
-        out[i]     = sig * 0.5f;
-        out[i + 1] = sig * 0.5f;
+        sig = 0;
+
+        for(int j = 0; j < voice_number; j++)
+        {
+            if(voice1[j].isActive)
+            {
+                sig += voice1[j].osc.Process();
+            }
+            if(voice2[j].isActive)
+            {
+                sig += voice2[j].osc.Process();
+            }
+        }
+
+        //cout how many active voices
+        int activeVoices = 0;
+        for(int j = 0; j < voice_number; j++)
+        {
+            if(voice1[j].isActive)
+            {
+                activeVoices++;
+            }
+            if(voice2[j].isActive)
+            {
+                activeVoices++;
+            }
+        }
+
+        out[i]     = sig / 10;
+        out[i + 1] = sig / 10;
     }
 }
 
@@ -62,11 +98,33 @@ void HandleMidiMessage(MidiEvent m)
             NoteOnEvent p = m.AsNoteOn();
             if(m.data[1] != 0)
             {
-                p = m.AsNoteOn();
-                osc1.SetFreq(mtof(p.note + (osc1_octave * 12)));
-                osc2.SetFreq(mtof(p.note + (osc2_octave * 12)));
-                osc1.SetAmp((1));
-                osc2.SetAmp((1));
+                for(int i = 0; i < voice_number; i++)
+                {
+                    if(!voice1[i].isActive)
+                    {
+                        voice1[i].osc.SetFreq(mtof(p.note + (osc1_octave * 12))
+                                              + osc1_pitch);
+                        voice1[i].osc.SetAmp(p.velocity / 127.0f);
+                        voice1[i].mNoteNumber = p.note;
+                        voice1[i].mVelocity   = p.velocity;
+                        voice1[i].isActive    = true;
+                        break;
+                    }
+                }
+
+                for(int i = 0; i < voice_number; i++)
+                {
+                    if(!voice2[i].isActive)
+                    {
+                        voice2[i].osc.SetFreq(mtof(p.note + (osc2_octave * 12))
+                                              + osc2_pitch);
+                        voice2[i].osc.SetAmp(p.velocity / 127.0f);
+                        voice2[i].mNoteNumber = p.note;
+                        voice2[i].mVelocity   = p.velocity;
+                        voice2[i].isActive    = true;
+                        break;
+                    }
+                }
             }
         }
         break;
@@ -74,8 +132,30 @@ void HandleMidiMessage(MidiEvent m)
         {
             if(m.data[1] != 0)
             {
-                osc1.SetAmp(0);
-                osc2.SetAmp(0);
+                NoteOffEvent p = m.AsNoteOff();
+                for(int i = 0; i < voice_number; i++)
+                {
+                    if(voice1[i].mNoteNumber == p.note)
+                    {
+                        voice1[i].osc.SetAmp(0);
+                        voice1[i].mNoteNumber = 0;
+                        voice1[i].mVelocity   = 0;
+                        voice1[i].isActive    = false;
+                        break;
+                    }
+                }
+
+                for(int i = 0; i < voice_number; i++)
+                {
+                    if(voice2[i].mNoteNumber == p.note)
+                    {
+                        voice2[i].osc.SetAmp(0);
+                        voice2[i].mNoteNumber = 0;
+                        voice2[i].mVelocity   = 0;
+                        voice2[i].isActive    = false;
+                        break;
+                    }
+                }
             }
         }
         default: break;
@@ -98,12 +178,23 @@ int main(void)
     encoderRight.Init(
         hw.GetPin(16), hw.GetPin(17), hw.GetPin(15), hw.AudioSampleRate());
     menu.display = &display;
-    osc1.Init(hw.AudioSampleRate());
-    osc1.SetWaveform(osc1.WAVE_SAW);
-    osc1.SetAmp(0);
-    osc2.Init(hw.AudioSampleRate());
-    osc2.SetWaveform(osc2.WAVE_SAW);
-    osc2.SetAmp(0);
+    for(int i = 0; i < voice_number; i++)
+    {
+        voice1[i].osc.Init(hw.AudioSampleRate());
+        voice2[i].osc.Init(hw.AudioSampleRate());
+        voice1[i].osc.SetWaveform(Oscillator::WAVE_SAW);
+        voice2[i].osc.SetWaveform(Oscillator::WAVE_SAW);
+        voice1[i].osc.SetFreq(0);
+        voice2[i].osc.SetFreq(0);
+        voice1[i].osc.SetAmp(0);
+        voice2[i].osc.SetAmp(0);
+        voice1[i].mNoteNumber = 0;
+        voice2[i].mNoteNumber = 0;
+        voice1[i].mVelocity   = 0;
+        voice2[i].mVelocity   = 0;
+        voice1[i].isActive    = false;
+        voice2[i].isActive    = false;
+    }
     leftButton.Init(hw.GetPin(26), hw.AudioSampleRate());
     rightButton.Init(hw.GetPin(27), hw.AudioSampleRate());
     hw.StartAudio(AudioCallback);
@@ -113,6 +204,12 @@ int main(void)
     while(1)
     {
         midi.Listen();
+        while(midi.HasEvents())
+        {
+            HandleMidiMessage(midi.PopEvent());
+        }
+
+
         encoderLeft.Debounce();
         encoderRight.Debounce();
         leftButton.Debounce();
@@ -170,9 +267,25 @@ int main(void)
                 }
                 switch((int)osc1_shape)
                 {
-                    case 0: osc1.SetWaveform(osc1.WAVE_SAW); break;
-                    case 1: osc1.SetWaveform(osc1.WAVE_TRI); break;
-                    case 2: osc1.SetWaveform(osc1.WAVE_SQUARE); break;
+                    case 0:
+                        for(int i = 0; i < voice_number; i++)
+                        {
+                            voice1[i].osc.SetWaveform(voice1[i].osc.WAVE_SAW);
+                        }
+                        break;
+                    case 1:
+                        for(int i = 0; i < voice_number; i++)
+                        {
+                            voice1[i].osc.SetWaveform(voice1[i].osc.WAVE_TRI);
+                        }
+                        break;
+                    case 2:
+                        for(int i = 0; i < voice_number; i++)
+                        {
+                            voice1[i].osc.SetWaveform(
+                                voice1[i].osc.WAVE_SQUARE);
+                        }
+                        break;
                 }
             }
             else
@@ -188,9 +301,25 @@ int main(void)
                 }
                 switch((int)osc2_shape)
                 {
-                    case 0: osc2.SetWaveform(osc2.WAVE_SAW); break;
-                    case 1: osc2.SetWaveform(osc2.WAVE_TRI); break;
-                    case 2: osc2.SetWaveform(osc2.WAVE_SQUARE); break;
+                    case 0:
+                        for(int i = 0; i < voice_number; i++)
+                        {
+                            voice2[i].osc.SetWaveform(voice2[i].osc.WAVE_SAW);
+                        }
+                        break;
+                    case 1:
+                        for(int i = 0; i < voice_number; i++)
+                        {
+                            voice2[i].osc.SetWaveform(voice2[i].osc.WAVE_TRI);
+                        }
+                        break;
+                    case 2:
+                        for(int i = 0; i < voice_number; i++)
+                        {
+                            voice2[i].osc.SetWaveform(
+                                voice2[i].osc.WAVE_SQUARE);
+                        }
+                        break;
                 }
             }
         }
@@ -246,10 +375,6 @@ int main(void)
             {
                 indexPage1 = 2;
             }
-        }
-        if(midi.HasEvents())
-        {
-            HandleMidiMessage(midi.PopEvent());
         }
     }
 }

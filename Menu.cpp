@@ -1,6 +1,7 @@
 #include "Menu.h"
 
 
+
 void Menu::drawMenu(int         octave,
                     const char* title,
                     int         indexPageOne,
@@ -8,6 +9,7 @@ void Menu::drawMenu(int         octave,
                     int         pitch)
 {
     this->drawPageOne(octave, title, indexPageOne, shape, pitch);
+
 }
 
 //UI Pages
