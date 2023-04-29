@@ -1,23 +1,17 @@
 #include "Menu.h"
 
 
-
-void Menu::drawMenu(int         octave,
-                    const char* title,
-                    int         indexPageOne,
-                    int         shape,
-                    int         pitch)
+void Menu::drawMenu(int octave, int indexPageOne, int shape, int shapeMod, int pitch)
 {
-    this->drawPageOne(octave, title, indexPageOne, shape, pitch);
-
+    this->drawPageOne(octave, indexPageOne, shape, shapeMod, pitch);
 }
 
 //UI Pages
-void Menu::drawPageOne(int         octave,
-                       const char* title,
-                       int         indexPageOne,
-                       int         shape,
-                       int         pitch)
+void Menu::drawPageOne(int octave,
+                       int indexPageOne,
+                       int shape,
+                       int shapeMod,
+                       int pitch)
 {
     display->Fill(!this->colorScheme);
     display->SetCursor(display->Width() - 40, 7);
@@ -25,12 +19,15 @@ void Menu::drawPageOne(int         octave,
     display->SetCursor(3, (this->display->Height()) - 12);
     display->WriteString("Oct", Font_6x8, this->colorScheme);
     this->drawMeter(octave);
-    display->SetCursor(27, (this->display->Height()) - 12);
-    display->WriteString("Wave", Font_6x8, this->colorScheme);
+    display->SetCursor(30, (this->display->Height()) - 12);
+    display->WriteString("Wav", Font_6x8, this->colorScheme);
+    display->SetCursor(57, (this->display->Height()) - 12);
+    display->WriteString("Pch", Font_6x8, this->colorScheme);
+    display->SetCursor(82, (this->display->Height()) - 12);
+    display->WriteString("Shp", Font_6x8, this->colorScheme);
     this->drawWaveSelector(shape);
-    display->SetCursor(64, 20);
-    display->WriteString("Pitch", Font_6x8, this->colorScheme);
-    this->drawHSlider(64, 30, 60, 8, pitch, this->colorScheme);
+    this->drawVSlider(61, 6, 8, 40, pitch, this->colorScheme);
+    this->drawVSlider(86, 6, 8, 40, shapeMod, this->colorScheme);
     this->selector(indexPageOne, this->colorScheme);
     display->Update();
 }
@@ -125,11 +122,24 @@ void Menu::selector(int index, bool color)
                                     this->display->Height() - 2,
                                     color);
             break;
-        case 2: this->display->DrawRect(62, 16, 96, 28, color, false); break;
+        case 2:
+            this->display->DrawRect(53,
+                                    this->display->Height() - 15,
+                                    77,
+                                    this->display->Height() - 2,
+                                    color);
+            break;
+        case 3:
+            this->display->DrawRect(78,
+                                    this->display->Height() - 15,
+                                    102,
+                                    this->display->Height() - 2,
+                                    color);
+            break;
     }
 }
 
-void Menu::drawHSlider(int  x,
+void Menu::drawVSlider(int  x,
                        int  y,
                        int  width,
                        int  height,
@@ -137,8 +147,11 @@ void Menu::drawHSlider(int  x,
                        bool color)
 {
     this->display->DrawRect(x, y, x + width, y + height, this->colorScheme);
-    this->display->DrawRect(
-        x + 1, y + 1, x + value, y + height - 1, color, true);
+    this->display->DrawLine(x + (width / 2),
+                            y + height,
+                            x + (width / 2),
+                            y + height - (height * value / 100),
+                            color);
 }
 
 //UI icons

@@ -37,18 +37,20 @@ Switch                                 rightButton;
 MidiHandler<MidiUartTransport>         midi;
 MidiHandler<MidiUartTransport>::Config midi_cfg;
 
-bool  colorScheme = true;
-int   osc1_octave = 1;
-int   osc2_octave = 1;
-float osc1_freq   = 0;
-float osc2_freq   = 0;
-float osc1_shape  = 0;
-float osc2_shape  = 0;
-float osc1_pitch  = 0;
-float osc2_pitch  = 0;
-bool  activeVoice = true;
-int   indexPage1  = 0;
-float sig         = 0;
+bool  colorScheme    = true;
+int   osc1_octave    = 1;
+int   osc2_octave    = 1;
+float osc1_freq      = 0;
+float osc2_freq      = 0;
+float osc1_shape     = 0;
+float osc2_shape     = 0;
+float osc1_shape_mod = 0;
+float osc2_shape_mod = 0;
+float osc1_pitch     = 0;
+float osc2_pitch     = 0;
+bool  activeVoice    = true;
+int   indexPage1     = 0;
+float sig            = 0;
 
 void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
                    AudioHandle::InterleavingOutputBuffer out,
@@ -62,32 +64,32 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
         {
             if(voice1[j].isActive)
             {
+                if(osc1_shape == 2)
+                {
+                    voice1[j].osc.SetPw(osc1_shape_mod/100);
+                }
                 sig += voice1[j].osc.Process();
             }
             if(voice2[j].isActive)
             {
+                if(osc2_shape == 2)
+                {
+                    voice2[j].osc.SetPw(osc2_shape_mod/100);
+                }
                 sig += voice2[j].osc.Process();
             }
-        }
-
-        //cout how many active voices
-        int activeVoices = 0;
-        for(int j = 0; j < voice_number; j++)
-        {
-            if(voice1[j].isActive)
-            {
-                activeVoices++;
-            }
-            if(voice2[j].isActive)
-            {
-                activeVoices++;
-            }
+            /*        if(voice1[j].osc.IsEOC())
+                {
+                    voice2[j].osc.Reset();
+                } */
+            sig += voice2[j].osc.Process();
         }
 
         out[i]     = sig / 10;
         out[i + 1] = sig / 10;
     }
 }
+
 
 void HandleMidiMessage(MidiEvent m)
 {
@@ -215,9 +217,9 @@ int main(void)
         leftButton.Debounce();
         rightButton.Debounce();
         menu.drawMenu((activeVoice) ? osc1_octave : osc2_octave,
-                      (activeVoice) ? "VCO_1" : "VCO_2",
                       indexPage1,
                       (activeVoice) ? osc1_shape : osc2_shape,
+                      (activeVoice) ? osc1_shape_mod : osc2_shape_mod,
                       (activeVoice) ? osc1_pitch : osc2_pitch);
         if(encoderLeft.RisingEdge())
         {
@@ -353,10 +355,39 @@ int main(void)
                 osc2_pitch += encoderRight.Increment();
             }
         }
+
+        if(indexPage1 == 3)
+        {
+            if(activeVoice)
+            {
+                osc1_shape_mod += encoderRight.Increment();
+                if(osc1_shape_mod > 100)
+                {
+                    osc1_shape_mod = 100;
+                }
+                if(osc1_shape_mod < 0)
+                {
+                    osc1_shape_mod = 0;
+                }
+            }
+            else
+            {
+                osc2_shape_mod += encoderRight.Increment();
+                if(osc2_shape_mod > 100)
+                {
+                    osc2_shape_mod = 100;
+                }
+                if(osc2_shape_mod < 0)
+                {
+                    osc2_shape_mod = 0;
+                }
+            }
+        }
+
         //Button
         if(leftButton.RisingEdge())
         {
-            if(indexPage1 < 2)
+            if(indexPage1 < 3)
             {
                 indexPage1++;
             }
@@ -373,7 +404,7 @@ int main(void)
             }
             else
             {
-                indexPage1 = 2;
+                indexPage1 = 3;
             }
         }
     }

@@ -14,16 +14,12 @@ class Menu
     const char*                               title;
 
     //functions
-    void drawMenu(int         octave,
-                  const char* title,
-                  int         indexPageOne,
-                  int         shape,
-                  int         pitch);
-    void drawPageOne(int         octave,
-                     const char* title,
-                     int         indexPageOne,
-                     int         shape,
-                     int         pitch);
+    void drawMenu(int octave, int indexPageOne, int shape, int shapeMod, int pitch);
+    void drawPageOne(int octave,
+                     int indexPageOne,
+                     int shape,
+                     int shapeMod,
+                     int pitch);
     void drawMeter(int activeItem);
     void drawWaveSelector(int shape);
     void drawSquareWaveIcon(int x, int y, int size, bool color);
@@ -31,7 +27,7 @@ class Menu
     void drawSawWaveIcon(int x, int y, int size, bool color);
     void selector(int index, bool color);
     void
-    drawHSlider(int x, int y, int width, int height, int value, bool color);
+    drawVSlider(int x, int y, int width, int height, int value, bool color);
 }
 
 
