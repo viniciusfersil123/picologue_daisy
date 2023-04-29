@@ -14,12 +14,20 @@ class Menu
     const char*                               title;
 
     //functions
-    void drawMenu(int octave, int indexPageOne, int shape, int shapeMod, int pitch);
-    void drawPageOne(int octave,
-                     int indexPageOne,
-                     int shape,
-                     int shapeMod,
-                     int pitch);
+    void drawMenu(int   octave,
+                  int   indexPageOne,
+                  int   shape,
+                  int   shapeMod,
+                  float amp,
+                  int   pitch,
+                  int   currentePage);
+    void drawPageOne(int   octave,
+                     int   indexPageOne,
+                     int   shape,
+                     int   shapeMod,
+                     float amp,
+                     int   pitch);
+    void drawPageTwo();
     void drawMeter(int activeItem);
     void drawWaveSelector(int shape);
     void drawSquareWaveIcon(int x, int y, int size, bool color);

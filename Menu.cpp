@@ -1,17 +1,35 @@
 #include "Menu.h"
 
 
-void Menu::drawMenu(int octave, int indexPageOne, int shape, int shapeMod, int pitch)
+void Menu::drawMenu(int   octave,
+                    int   indexPageOne,
+                    int   shape,
+                    int   shapeMod,
+                    float amp,
+                    int   pitch,
+                    int currentPage)
+
 {
-    this->drawPageOne(octave, indexPageOne, shape, shapeMod, pitch);
+    switch(currentPage)
+    {
+        case 0:
+            this->drawPageOne(octave, indexPageOne, shape, shapeMod, amp, pitch);
+            break;
+        case 1:
+            this->drawPageTwo();
+            break;
+        default:
+            break;
+    }
 }
 
 //UI Pages
-void Menu::drawPageOne(int octave,
-                       int indexPageOne,
-                       int shape,
-                       int shapeMod,
-                       int pitch)
+void Menu::drawPageOne(int   octave,
+                       int   indexPageOne,
+                       int   shape,
+                       int   shapeMod,
+                       float amp,
+                       int   pitch)
 {
     display->Fill(!this->colorScheme);
     display->SetCursor(display->Width() - 40, 7);
@@ -25,10 +43,23 @@ void Menu::drawPageOne(int octave,
     display->WriteString("Pch", Font_6x8, this->colorScheme);
     display->SetCursor(82, (this->display->Height()) - 12);
     display->WriteString("Shp", Font_6x8, this->colorScheme);
+    display->SetCursor(107, (this->display->Height()) - 12);
+    display->WriteString("Amp", Font_6x8, this->colorScheme);
     this->drawWaveSelector(shape);
     this->drawVSlider(61, 6, 8, 40, pitch, this->colorScheme);
     this->drawVSlider(86, 6, 8, 40, shapeMod, this->colorScheme);
+    this->drawVSlider(111, 6, 8, 40, amp, this->colorScheme);
     this->selector(indexPageOne, this->colorScheme);
+    display->Update();
+}
+
+void Menu::drawPageTwo()
+{
+    display->Fill(!this->colorScheme);
+    display->SetCursor(display->Width() - 40, 7);
+    display->WriteString(title, Font_7x10, this->colorScheme);
+    display->SetCursor(3, (this->display->Height()) - 12);
+    display->WriteString("Page 2", Font_6x8, this->colorScheme);
     display->Update();
 }
 
@@ -133,6 +164,13 @@ void Menu::selector(int index, bool color)
             this->display->DrawRect(78,
                                     this->display->Height() - 15,
                                     102,
+                                    this->display->Height() - 2,
+                                    color);
+            break;
+        case 4:
+            this->display->DrawRect(103,
+                                    this->display->Height() - 15,
+                                    127,
                                     this->display->Height() - 2,
                                     color);
             break;

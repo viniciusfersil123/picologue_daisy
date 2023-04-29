@@ -48,9 +48,12 @@ float osc1_shape_mod = 0;
 float osc2_shape_mod = 0;
 float osc1_pitch     = 0;
 float osc2_pitch     = 0;
+float osc1_amp       = 0;
+float osc2_amp       = 0;
 bool  activeVoice    = true;
 int   indexPage1     = 0;
 float sig            = 0;
+int   currentPage    = 0;
 
 void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
                    AudioHandle::InterleavingOutputBuffer out,
@@ -66,23 +69,22 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
             {
                 if(osc1_shape == 2)
                 {
-                    voice1[j].osc.SetPw(osc1_shape_mod/100);
+                    voice1[j].osc.SetPw(osc1_shape_mod / 100);
                 }
-                sig += voice1[j].osc.Process();
+                sig += voice1[j].osc.Process() * osc1_amp / 100;
             }
             if(voice2[j].isActive)
             {
                 if(osc2_shape == 2)
                 {
-                    voice2[j].osc.SetPw(osc2_shape_mod/100);
+                    voice2[j].osc.SetPw(osc2_shape_mod / 100);
                 }
-                sig += voice2[j].osc.Process();
+                sig += voice2[j].osc.Process() * osc2_amp / 100;
             }
             /*        if(voice1[j].osc.IsEOC())
                 {
                     voice2[j].osc.Reset();
                 } */
-            sig += voice2[j].osc.Process();
         }
 
         out[i]     = sig / 10;
@@ -220,12 +222,24 @@ int main(void)
                       indexPage1,
                       (activeVoice) ? osc1_shape : osc2_shape,
                       (activeVoice) ? osc1_shape_mod : osc2_shape_mod,
-                      (activeVoice) ? osc1_pitch : osc2_pitch);
+                      (activeVoice) ? osc1_amp : osc2_amp,
+                      (activeVoice) ? osc1_pitch : osc2_pitch,
+                      currentPage);
         if(encoderLeft.RisingEdge())
         {
             menu.colorScheme = !menu.colorScheme;
             activeVoice      = !activeVoice;
         }
+        if(currentPage < 0)
+        {
+            currentPage = 0;
+        }
+        else if(currentPage > 1)
+        {
+            currentPage = 1;
+        }
+        else
+            currentPage += encoderLeft.Increment();
 
         if(indexPage1 == 0)
         {
@@ -384,10 +398,38 @@ int main(void)
             }
         }
 
+        if(indexPage1 == 4)
+        {
+            if(activeVoice)
+            {
+                osc1_amp += encoderRight.Increment();
+                if(osc1_amp > 100)
+                {
+                    osc1_amp = 100;
+                }
+                if(osc1_amp < 0)
+                {
+                    osc1_amp = 0;
+                }
+            }
+            else
+            {
+                osc2_amp += encoderRight.Increment();
+                if(osc2_amp > 100)
+                {
+                    osc2_amp = 100;
+                }
+                if(osc2_amp < 0)
+                {
+                    osc2_amp = 0;
+                }
+            }
+        }
+
         //Button
         if(leftButton.RisingEdge())
         {
-            if(indexPage1 < 3)
+            if(indexPage1 < 4)
             {
                 indexPage1++;
             }
@@ -404,7 +446,7 @@ int main(void)
             }
             else
             {
-                indexPage1 = 3;
+                indexPage1 = 4;
             }
         }
     }
