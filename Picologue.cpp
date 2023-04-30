@@ -25,6 +25,7 @@ struct voice
     bool       isActive;
 };
 
+
 DaisySeed                              hw;
 MyOledDisplay                          display;
 Menu                                   menu;
@@ -32,6 +33,7 @@ Encoder                                encoderLeft;
 Encoder                                encoderRight;
 voice                                  voice1[voice_number];
 voice                                  voice2[voice_number];
+Adsr                                   adsr[voice_number];
 Switch                                 leftButton;
 Switch                                 rightButton;
 MidiHandler<MidiUartTransport>         midi;
@@ -52,35 +54,44 @@ float osc1_amp       = 0;
 float osc2_amp       = 0;
 bool  activeVoice    = true;
 int   indexPage1     = 0;
+int   indexPage2     = 0;
 float sig            = 0;
 int   currentPage    = 0;
+int   attack         = 0;
 
 void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
                    AudioHandle::InterleavingOutputBuffer out,
                    size_t                                size)
 {
+    float env_out;
+
     for(size_t i = 0; i < size; i += 2)
     {
         sig = 0;
 
+
         for(int j = 0; j < voice_number; j++)
         {
-            if(voice1[j].isActive)
+            env_out = adsr[j].Process(voice1[j].isActive);
+
+            if(adsr[j].IsRunning())
             {
                 if(osc1_shape == 2)
                 {
                     voice1[j].osc.SetPw(osc1_shape_mod / 100);
                 }
+                voice1[j].osc.SetAmp(env_out);
                 sig += voice1[j].osc.Process() * osc1_amp / 100;
-            }
-            if(voice2[j].isActive)
-            {
+
+
                 if(osc2_shape == 2)
                 {
                     voice2[j].osc.SetPw(osc2_shape_mod / 100);
                 }
+                voice2[j].osc.SetAmp(env_out);
                 sig += voice2[j].osc.Process() * osc2_amp / 100;
             }
+
             /*        if(voice1[j].osc.IsEOC())
                 {
                     voice2[j].osc.Reset();
@@ -104,27 +115,23 @@ void HandleMidiMessage(MidiEvent m)
             {
                 for(int i = 0; i < voice_number; i++)
                 {
-                    if(!voice1[i].isActive)
+                    if(!adsr[i].IsRunning() && !voice1[i].isActive)
                     {
                         voice1[i].osc.SetFreq(mtof(p.note + (osc1_octave * 12))
                                               + osc1_pitch);
-                        voice1[i].osc.SetAmp(p.velocity / 127.0f);
-                        voice1[i].mNoteNumber = p.note;
-                        voice1[i].mVelocity   = p.velocity;
                         voice1[i].isActive    = true;
+                        voice1[i].mNoteNumber = p.note;
                         break;
                     }
                 }
 
                 for(int i = 0; i < voice_number; i++)
                 {
-                    if(!voice2[i].isActive)
+                    if(!adsr[i].IsRunning() && !voice2[i].isActive)
                     {
                         voice2[i].osc.SetFreq(mtof(p.note + (osc2_octave * 12))
                                               + osc2_pitch);
-                        voice2[i].osc.SetAmp(p.velocity / 127.0f);
                         voice2[i].mNoteNumber = p.note;
-                        voice2[i].mVelocity   = p.velocity;
                         voice2[i].isActive    = true;
                         break;
                     }
@@ -141,9 +148,7 @@ void HandleMidiMessage(MidiEvent m)
                 {
                     if(voice1[i].mNoteNumber == p.note)
                     {
-                        voice1[i].osc.SetAmp(0);
                         voice1[i].mNoteNumber = 0;
-                        voice1[i].mVelocity   = 0;
                         voice1[i].isActive    = false;
                         break;
                     }
@@ -153,9 +158,7 @@ void HandleMidiMessage(MidiEvent m)
                 {
                     if(voice2[i].mNoteNumber == p.note)
                     {
-                        voice2[i].osc.SetAmp(0);
                         voice2[i].mNoteNumber = 0;
-                        voice2[i].mVelocity   = 0;
                         voice2[i].isActive    = false;
                         break;
                     }
@@ -186,8 +189,8 @@ int main(void)
     {
         voice1[i].osc.Init(hw.AudioSampleRate());
         voice2[i].osc.Init(hw.AudioSampleRate());
-        voice1[i].osc.SetWaveform(Oscillator::WAVE_SAW);
-        voice2[i].osc.SetWaveform(Oscillator::WAVE_SAW);
+        voice1[i].osc.SetWaveform(Oscillator::WAVE_POLYBLEP_SAW);
+        voice2[i].osc.SetWaveform(Oscillator::WAVE_POLYBLEP_SAW);
         voice1[i].osc.SetFreq(0);
         voice2[i].osc.SetFreq(0);
         voice1[i].osc.SetAmp(0);
@@ -198,6 +201,12 @@ int main(void)
         voice2[i].mVelocity   = 0;
         voice1[i].isActive    = false;
         voice2[i].isActive    = false;
+        adsr[i].Init(hw.AudioSampleRate());
+        adsr[i].Init(hw.AudioSampleRate());
+        adsr[i].SetAttackTime(0.2);
+        adsr[i].SetDecayTime(0.2);
+        adsr[i].SetSustainLevel(0.8);
+        adsr[i].SetReleaseTime(0.2);
     }
     leftButton.Init(hw.GetPin(26), hw.AudioSampleRate());
     rightButton.Init(hw.GetPin(27), hw.AudioSampleRate());
@@ -224,7 +233,8 @@ int main(void)
                       (activeVoice) ? osc1_shape_mod : osc2_shape_mod,
                       (activeVoice) ? osc1_amp : osc2_amp,
                       (activeVoice) ? osc1_pitch : osc2_pitch,
-                      currentPage);
+                      currentPage,
+                      attack);
         if(encoderLeft.RisingEdge())
         {
             menu.colorScheme = !menu.colorScheme;
@@ -286,7 +296,8 @@ int main(void)
                     case 0:
                         for(int i = 0; i < voice_number; i++)
                         {
-                            voice1[i].osc.SetWaveform(voice1[i].osc.WAVE_SAW);
+                            voice1[i].osc.SetWaveform(
+                                voice1[i].osc.WAVE_POLYBLEP_SAW);
                         }
                         break;
                     case 1:
@@ -299,7 +310,7 @@ int main(void)
                         for(int i = 0; i < voice_number; i++)
                         {
                             voice1[i].osc.SetWaveform(
-                                voice1[i].osc.WAVE_SQUARE);
+                                voice1[i].osc.WAVE_POLYBLEP_SQUARE);
                         }
                         break;
                 }
@@ -320,7 +331,8 @@ int main(void)
                     case 0:
                         for(int i = 0; i < voice_number; i++)
                         {
-                            voice2[i].osc.SetWaveform(voice2[i].osc.WAVE_SAW);
+                            voice2[i].osc.SetWaveform(
+                                voice2[i].osc.WAVE_POLYBLEP_SAW);
                         }
                         break;
                     case 1:
@@ -333,7 +345,7 @@ int main(void)
                         for(int i = 0; i < voice_number; i++)
                         {
                             voice2[i].osc.SetWaveform(
-                                voice2[i].osc.WAVE_SQUARE);
+                                voice2[i].osc.WAVE_POLYBLEP_SQUARE);
                         }
                         break;
                 }
@@ -423,6 +435,20 @@ int main(void)
                 {
                     osc2_amp = 0;
                 }
+            }
+        }
+
+        if(indexPage2 == 0)
+        {
+            attack += encoderRight.Increment();
+
+            if(attack > 128 / 4)
+            {
+                attack = 128 / 4;
+            }
+            if(attack < 0)
+            {
+                attack = 0;
             }
         }
 

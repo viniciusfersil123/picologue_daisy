@@ -7,19 +7,18 @@ void Menu::drawMenu(int   octave,
                     int   shapeMod,
                     float amp,
                     int   pitch,
-                    int currentPage)
+                    int   currentPage,
+                    int   attack)
 
 {
     switch(currentPage)
     {
         case 0:
-            this->drawPageOne(octave, indexPageOne, shape, shapeMod, amp, pitch);
+            this->drawPageOne(
+                octave, indexPageOne, shape, shapeMod, amp, pitch);
             break;
-        case 1:
-            this->drawPageTwo();
-            break;
-        default:
-            break;
+        case 1: this->drawPageTwo(attack); break;
+        default: break;
     }
 }
 
@@ -53,13 +52,13 @@ void Menu::drawPageOne(int   octave,
     display->Update();
 }
 
-void Menu::drawPageTwo()
+void Menu::drawPageTwo(int attack)
 {
     display->Fill(!this->colorScheme);
-    display->SetCursor(display->Width() - 40, 7);
-    display->WriteString(title, Font_7x10, this->colorScheme);
-    display->SetCursor(3, (this->display->Height()) - 12);
-    display->WriteString("Page 2", Font_6x8, this->colorScheme);
+    display->DrawLine(0, display->Height(), attack, 12, this->colorScheme);
+    display->DrawLine(attack, 12, attack, display->Height(), this->colorScheme);
+    display->SetCursor(attack, 0);
+    display->WriteString("A", Font_6x8, this->colorScheme);
     display->Update();
 }
 

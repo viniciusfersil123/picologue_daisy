@@ -20,14 +20,15 @@ class Menu
                   int   shapeMod,
                   float amp,
                   int   pitch,
-                  int   currentePage);
+                  int   currentePage,
+                  int attack);
     void drawPageOne(int   octave,
                      int   indexPageOne,
                      int   shape,
                      int   shapeMod,
                      float amp,
                      int   pitch);
-    void drawPageTwo();
+    void drawPageTwo(int attack);
     void drawMeter(int activeItem);
     void drawWaveSelector(int shape);
     void drawSquareWaveIcon(int x, int y, int size, bool color);
