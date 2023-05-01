@@ -250,205 +250,216 @@ int main(void)
         }
         else
             currentPage += encoderLeft.Increment();
-
-        if(indexPage1 == 0)
+        if(currentPage == 0)
         {
-            if(activeVoice)
+            if(indexPage1 == 0)
             {
-                osc1_octave += encoderRight.Increment();
-                if(osc1_octave > 4)
+                if(activeVoice)
                 {
-                    osc1_octave = 1;
+                    osc1_octave += encoderRight.Increment();
+                    if(osc1_octave > 4)
+                    {
+                        osc1_octave = 1;
+                    }
+                    if(osc1_octave < 1)
+                    {
+                        osc1_octave = 4;
+                    }
                 }
-                if(osc1_octave < 1)
+                else
                 {
-                    osc1_octave = 4;
+                    osc2_octave += encoderRight.Increment();
+                    if(osc2_octave > 4)
+                    {
+                        osc2_octave = 1;
+                    }
+                    if(osc2_octave < 1)
+                    {
+                        osc2_octave = 4;
+                    }
                 }
             }
-            else
+            if(indexPage1 == 1)
             {
-                osc2_octave += encoderRight.Increment();
-                if(osc2_octave > 4)
+                if(activeVoice)
                 {
-                    osc2_octave = 1;
+                    osc1_shape += encoderRight.Increment();
+                    if(osc1_shape > 2)
+                    {
+                        osc1_shape = 0;
+                    }
+                    if(osc1_shape < 0)
+                    {
+                        osc1_shape = 2;
+                    }
+                    switch((int)osc1_shape)
+                    {
+                        case 0:
+                            for(int i = 0; i < voice_number; i++)
+                            {
+                                voice1[i].osc.SetWaveform(
+                                    voice1[i].osc.WAVE_POLYBLEP_SAW);
+                            }
+                            break;
+                        case 1:
+                            for(int i = 0; i < voice_number; i++)
+                            {
+                                voice1[i].osc.SetWaveform(
+                                    voice1[i].osc.WAVE_TRI);
+                            }
+                            break;
+                        case 2:
+                            for(int i = 0; i < voice_number; i++)
+                            {
+                                voice1[i].osc.SetWaveform(
+                                    voice1[i].osc.WAVE_POLYBLEP_SQUARE);
+                            }
+                            break;
+                    }
                 }
-                if(osc2_octave < 1)
+                else
                 {
-                    osc2_octave = 4;
+                    osc2_shape += encoderRight.Increment();
+                    if(osc2_shape > 2)
+                    {
+                        osc2_shape = 0;
+                    }
+                    if(osc2_shape < 0)
+                    {
+                        osc2_shape = 2;
+                    }
+                    switch((int)osc2_shape)
+                    {
+                        case 0:
+                            for(int i = 0; i < voice_number; i++)
+                            {
+                                voice2[i].osc.SetWaveform(
+                                    voice2[i].osc.WAVE_POLYBLEP_SAW);
+                            }
+                            break;
+                        case 1:
+                            for(int i = 0; i < voice_number; i++)
+                            {
+                                voice2[i].osc.SetWaveform(
+                                    voice2[i].osc.WAVE_TRI);
+                            }
+                            break;
+                        case 2:
+                            for(int i = 0; i < voice_number; i++)
+                            {
+                                voice2[i].osc.SetWaveform(
+                                    voice2[i].osc.WAVE_POLYBLEP_SQUARE);
+                            }
+                            break;
+                    }
+                }
+            }
+
+            if(indexPage1 == 2)
+            {
+                if(activeVoice)
+                {
+                    osc1_freq += encoderRight.Increment();
+                    if(osc1_pitch > 100)
+                    {
+                        osc1_pitch = 100;
+                    }
+                    if(osc1_pitch < 0)
+                    {
+                        osc1_pitch = 0;
+                    }
+                    osc1_pitch += encoderRight.Increment();
+                }
+                else
+                {
+                    osc2_freq += encoderRight.Increment();
+                    if(osc2_pitch > 100)
+                    {
+                        osc2_pitch = 100;
+                    }
+                    if(osc2_pitch < 0)
+                    {
+                        osc2_pitch = 0;
+                    }
+                    osc2_pitch += encoderRight.Increment();
+                }
+            }
+
+            if(indexPage1 == 3)
+            {
+                if(activeVoice)
+                {
+                    osc1_shape_mod += encoderRight.Increment();
+                    if(osc1_shape_mod > 100)
+                    {
+                        osc1_shape_mod = 100;
+                    }
+                    if(osc1_shape_mod < 0)
+                    {
+                        osc1_shape_mod = 0;
+                    }
+                }
+                else
+                {
+                    osc2_shape_mod += encoderRight.Increment();
+                    if(osc2_shape_mod > 100)
+                    {
+                        osc2_shape_mod = 100;
+                    }
+                    if(osc2_shape_mod < 0)
+                    {
+                        osc2_shape_mod = 0;
+                    }
+                }
+            }
+
+            if(indexPage1 == 4)
+            {
+                if(activeVoice)
+                {
+                    osc1_amp += encoderRight.Increment();
+                    if(osc1_amp > 100)
+                    {
+                        osc1_amp = 100;
+                    }
+                    if(osc1_amp < 0)
+                    {
+                        osc1_amp = 0;
+                    }
+                }
+                else
+                {
+                    osc2_amp += encoderRight.Increment();
+                    if(osc2_amp > 100)
+                    {
+                        osc2_amp = 100;
+                    }
+                    if(osc2_amp < 0)
+                    {
+                        osc2_amp = 0;
+                    }
                 }
             }
         }
-        if(indexPage1 == 1)
-        {
-            if(activeVoice)
-            {
-                osc1_shape += encoderRight.Increment();
-                if(osc1_shape > 2)
-                {
-                    osc1_shape = 0;
-                }
-                if(osc1_shape < 0)
-                {
-                    osc1_shape = 2;
-                }
-                switch((int)osc1_shape)
-                {
-                    case 0:
-                        for(int i = 0; i < voice_number; i++)
-                        {
-                            voice1[i].osc.SetWaveform(
-                                voice1[i].osc.WAVE_POLYBLEP_SAW);
-                        }
-                        break;
-                    case 1:
-                        for(int i = 0; i < voice_number; i++)
-                        {
-                            voice1[i].osc.SetWaveform(voice1[i].osc.WAVE_TRI);
-                        }
-                        break;
-                    case 2:
-                        for(int i = 0; i < voice_number; i++)
-                        {
-                            voice1[i].osc.SetWaveform(
-                                voice1[i].osc.WAVE_POLYBLEP_SQUARE);
-                        }
-                        break;
-                }
-            }
-            else
-            {
-                osc2_shape += encoderRight.Increment();
-                if(osc2_shape > 2)
-                {
-                    osc2_shape = 0;
-                }
-                if(osc2_shape < 0)
-                {
-                    osc2_shape = 2;
-                }
-                switch((int)osc2_shape)
-                {
-                    case 0:
-                        for(int i = 0; i < voice_number; i++)
-                        {
-                            voice2[i].osc.SetWaveform(
-                                voice2[i].osc.WAVE_POLYBLEP_SAW);
-                        }
-                        break;
-                    case 1:
-                        for(int i = 0; i < voice_number; i++)
-                        {
-                            voice2[i].osc.SetWaveform(voice2[i].osc.WAVE_TRI);
-                        }
-                        break;
-                    case 2:
-                        for(int i = 0; i < voice_number; i++)
-                        {
-                            voice2[i].osc.SetWaveform(
-                                voice2[i].osc.WAVE_POLYBLEP_SQUARE);
-                        }
-                        break;
-                }
-            }
-        }
 
-        if(indexPage1 == 2)
+        if(currentPage == 1)
         {
-            if(activeVoice)
+            if(indexPage2 == 0)
             {
-                osc1_freq += encoderRight.Increment();
-                if(osc1_pitch > 100)
-                {
-                    osc1_pitch = 100;
-                }
-                if(osc1_pitch < 0)
-                {
-                    osc1_pitch = 0;
-                }
-                osc1_pitch += encoderRight.Increment();
-            }
-            else
-            {
-                osc2_freq += encoderRight.Increment();
-                if(osc2_pitch > 100)
-                {
-                    osc2_pitch = 100;
-                }
-                if(osc2_pitch < 0)
-                {
-                    osc2_pitch = 0;
-                }
-                osc2_pitch += encoderRight.Increment();
-            }
-        }
+                attack += encoderRight.Increment();
 
-        if(indexPage1 == 3)
-        {
-            if(activeVoice)
-            {
-                osc1_shape_mod += encoderRight.Increment();
-                if(osc1_shape_mod > 100)
+                if(attack > 128 / 4)
                 {
-                    osc1_shape_mod = 100;
+                    attack = 128 / 4;
                 }
-                if(osc1_shape_mod < 0)
+                if(attack < 0)
                 {
-                    osc1_shape_mod = 0;
+                    attack = 0;
                 }
-            }
-            else
-            {
-                osc2_shape_mod += encoderRight.Increment();
-                if(osc2_shape_mod > 100)
+                for(int i = 0; i < voice_number; i++)
                 {
-                    osc2_shape_mod = 100;
+                    adsr[i].SetAttackTime(attack / 6 + 0.1);
                 }
-                if(osc2_shape_mod < 0)
-                {
-                    osc2_shape_mod = 0;
-                }
-            }
-        }
-
-        if(indexPage1 == 4)
-        {
-            if(activeVoice)
-            {
-                osc1_amp += encoderRight.Increment();
-                if(osc1_amp > 100)
-                {
-                    osc1_amp = 100;
-                }
-                if(osc1_amp < 0)
-                {
-                    osc1_amp = 0;
-                }
-            }
-            else
-            {
-                osc2_amp += encoderRight.Increment();
-                if(osc2_amp > 100)
-                {
-                    osc2_amp = 100;
-                }
-                if(osc2_amp < 0)
-                {
-                    osc2_amp = 0;
-                }
-            }
-        }
-
-        if(indexPage2 == 0)
-        {
-            attack += encoderRight.Increment();
-
-            if(attack > 128 / 4)
-            {
-                attack = 128 / 4;
-            }
-            if(attack < 0)
-            {
-                attack = 0;
             }
         }
 
