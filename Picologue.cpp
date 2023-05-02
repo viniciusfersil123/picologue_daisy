@@ -74,6 +74,7 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
         {
             env_out = adsr[j].Process(voice1[j].isActive);
 
+
             if(adsr[j].IsRunning())
             {
                 if(osc1_shape == 2)
@@ -193,14 +194,16 @@ int main(void)
         voice2[i].osc.SetWaveform(Oscillator::WAVE_POLYBLEP_SAW);
         voice1[i].osc.SetFreq(0);
         voice2[i].osc.SetFreq(0);
-        voice1[i].osc.SetAmp(0);
-        voice2[i].osc.SetAmp(0);
+        voice1[i].osc.SetAmp(0.5);
+        voice2[i].osc.SetAmp(0.5);
         voice1[i].mNoteNumber = 0;
         voice2[i].mNoteNumber = 0;
         voice1[i].mVelocity   = 0;
         voice2[i].mVelocity   = 0;
         voice1[i].isActive    = false;
         voice2[i].isActive    = false;
+        voice1[i].osc.SetPw(0.5);
+        voice2[i].osc.SetPw(0.5);
         adsr[i].Init(hw.AudioSampleRate());
         adsr[i].Init(hw.AudioSampleRate());
         adsr[i].SetAttackTime(0.2);
@@ -208,6 +211,10 @@ int main(void)
         adsr[i].SetSustainLevel(0.8);
         adsr[i].SetReleaseTime(0.2);
     }
+    osc1_amp = 50;
+    osc2_amp = 50;
+    osc1_shape_mod = 50;
+    osc2_shape_mod = 50;
     leftButton.Init(hw.GetPin(26), hw.AudioSampleRate());
     rightButton.Init(hw.GetPin(27), hw.AudioSampleRate());
     hw.StartAudio(AudioCallback);
