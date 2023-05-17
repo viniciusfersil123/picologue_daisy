@@ -21,20 +21,24 @@ class Menu
                   float amp,
                   int   pitch,
                   int   currentePage,
-                  int attack);
+                  float attack,
+                  float decay,
+                  float sustain,
+                  float release);
+                  
     void drawPageOne(int   octave,
                      int   indexPageOne,
                      int   shape,
                      int   shapeMod,
                      float amp,
                      int   pitch);
-    void drawPageTwo(int attack);
+    void drawPageTwo(int indexPageTwo, float attack, float decay, float sustain, float release);
     void drawMeter(int activeItem);
     void drawWaveSelector(int shape);
     void drawSquareWaveIcon(int x, int y, int size, bool color);
     void drawTriangleWaveIcon(int x, int y, int size, bool color);
     void drawSawWaveIcon(int x, int y, int size, bool color);
-    void selector(int index, bool color);
+    void selector(int index, int page, bool color);
     void
     drawVSlider(int x, int y, int width, int height, int value, bool color);
 }

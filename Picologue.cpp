@@ -57,7 +57,10 @@ int   indexPage1     = 0;
 int   indexPage2     = 0;
 float sig            = 0;
 int   currentPage    = 0;
-int   attack         = 0;
+float attack         = 30;
+float decay          = 30;
+float sustain        = 0;
+float release        = 0;
 
 void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
                    AudioHandle::InterleavingOutputBuffer out,
@@ -211,8 +214,8 @@ int main(void)
         adsr[i].SetSustainLevel(0.8);
         adsr[i].SetReleaseTime(0.2);
     }
-    osc1_amp = 50;
-    osc2_amp = 50;
+    osc1_amp       = 50;
+    osc2_amp       = 50;
     osc1_shape_mod = 50;
     osc2_shape_mod = 50;
     leftButton.Init(hw.GetPin(26), hw.AudioSampleRate());
@@ -241,7 +244,10 @@ int main(void)
                       (activeVoice) ? osc1_amp : osc2_amp,
                       (activeVoice) ? osc1_pitch : osc2_pitch,
                       currentPage,
-                      attack);
+                      attack,
+                      decay,
+                      sustain,
+                      release);
         if(encoderLeft.RisingEdge())
         {
             menu.colorScheme = !menu.colorScheme;

@@ -8,7 +8,10 @@ void Menu::drawMenu(int   octave,
                     float amp,
                     int   pitch,
                     int   currentPage,
-                    int   attack)
+                    float attack,
+                    float decay,
+                    float sustain,
+                    float release)
 
 {
     switch(currentPage)
@@ -17,7 +20,7 @@ void Menu::drawMenu(int   octave,
             this->drawPageOne(
                 octave, indexPageOne, shape, shapeMod, amp, pitch);
             break;
-        case 1: this->drawPageTwo(attack); break;
+        case 1: this->drawPageTwo(indexPageOne, attack, decay, sustain, release); break;
         default: break;
     }
 }
@@ -48,17 +51,65 @@ void Menu::drawPageOne(int   octave,
     this->drawVSlider(61, 6, 8, 40, pitch, this->colorScheme);
     this->drawVSlider(86, 6, 8, 40, shapeMod, this->colorScheme);
     this->drawVSlider(111, 6, 8, 40, amp, this->colorScheme);
-    this->selector(indexPageOne, this->colorScheme);
+    this->selector(indexPageOne, 0, this->colorScheme);
     display->Update();
 }
 
-void Menu::drawPageTwo(int attack)
+void Menu::drawPageTwo(int   indexPageTwo,
+                       float attack,
+                       float decay,
+                       float sustain,
+                       float release)
 {
     display->Fill(!this->colorScheme);
+    this->selector(indexPageTwo, 0, this->colorScheme);
+    //attack
     display->DrawLine(0, display->Height(), attack, 12, this->colorScheme);
-    display->DrawLine(attack, 12, attack, display->Height(), this->colorScheme);
-    display->SetCursor(attack, 0);
+    for(int i = 0; i < display->Height(); i = i + 3)
+    {
+        display->DrawPixel(attack, 12 + i, this->colorScheme);
+    }
+    // display->DrawLine(attack, 12, attack, display->Height(), this->colorScheme);
+    display->SetCursor(attack - 2, 2);
     display->WriteString("A", Font_6x8, this->colorScheme);
+    //decay
+    display->DrawLine(
+        attack, 12, attack + decay, display->Height() / 2, this->colorScheme);
+    for(int i = 0; i < display->Height(); i = i + 3)
+    {
+        display->DrawPixel(
+            attack + decay, display->Height() / 2 + i, this->colorScheme);
+    }
+    display->SetCursor((attack + decay), display->Height() / 4);
+    display->WriteString("D", Font_6x8, this->colorScheme);
+    //sustain
+    display->DrawLine(attack + decay,
+                      display->Height() / 2,
+                      attack + decay + display->Width() / 4,
+                      display->Height() / 2,
+                      this->colorScheme);
+    for(int i = 0; i < display->Height(); i = i + 3)
+    {
+        display->DrawPixel(attack + decay + display->Width() / 4,
+                           display->Height() / 2 + i,
+                           this->colorScheme);
+    }
+    display->SetCursor((attack + decay + display->Width() / 4),
+                       display->Height() / 4);
+    display->WriteString("S", Font_6x8, this->colorScheme);
+    //release
+    display->DrawLine(attack + decay + display->Width() / 4,
+                      display->Height() / 2,
+                      display->Width(),
+                      display->Height(),
+                      this->colorScheme);
+    for(int i = 0; i < display->Height(); i = i + 3)
+    {
+        display->DrawPixel(
+            display->Width(), display->Height() + i, this->colorScheme);
+    }
+    display->SetCursor(display->Width() - 8, display->Height() - 24);
+    display->WriteString("R", Font_6x8, this->colorScheme);
     display->Update();
 }
 
@@ -134,45 +185,48 @@ void Menu::drawWaveSelector(int shape)
     }
 }
 
-void Menu::selector(int index, bool color)
+void Menu::selector(int index, int page, bool color)
 {
-    switch(index)
+    if(page == 0)
     {
-        case 0:
-            this->display->DrawRect(0,
-                                    this->display->Height() - 15,
-                                    23,
-                                    this->display->Height() - 2,
-                                    color);
-            break;
-        case 1:
-            this->display->DrawRect(24,
-                                    this->display->Height() - 15,
-                                    52,
-                                    this->display->Height() - 2,
-                                    color);
-            break;
-        case 2:
-            this->display->DrawRect(53,
-                                    this->display->Height() - 15,
-                                    77,
-                                    this->display->Height() - 2,
-                                    color);
-            break;
-        case 3:
-            this->display->DrawRect(78,
-                                    this->display->Height() - 15,
-                                    102,
-                                    this->display->Height() - 2,
-                                    color);
-            break;
-        case 4:
-            this->display->DrawRect(103,
-                                    this->display->Height() - 15,
-                                    127,
-                                    this->display->Height() - 2,
-                                    color);
-            break;
+        switch(index)
+        {
+            case 0:
+                this->display->DrawRect(0,
+                                        this->display->Height() - 15,
+                                        23,
+                                        this->display->Height() - 2,
+                                        color);
+                break;
+            case 1:
+                this->display->DrawRect(24,
+                                        this->display->Height() - 15,
+                                        52,
+                                        this->display->Height() - 2,
+                                        color);
+                break;
+            case 2:
+                this->display->DrawRect(53,
+                                        this->display->Height() - 15,
+                                        77,
+                                        this->display->Height() - 2,
+                                        color);
+                break;
+            case 3:
+                this->display->DrawRect(78,
+                                        this->display->Height() - 15,
+                                        102,
+                                        this->display->Height() - 2,
+                                        color);
+                break;
+            case 4:
+                this->display->DrawRect(103,
+                                        this->display->Height() - 15,
+                                        127,
+                                        this->display->Height() - 2,
+                                        color);
+                break;
+        }
     }
 }
 

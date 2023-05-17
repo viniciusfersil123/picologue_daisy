@@ -33,7 +33,7 @@
                 "/home/vinfernandes/Projects/daisy/DaisyExamples/libDaisy/src",
                 "/home/vinfernandes/Projects/daisy/DaisyExamples/libDaisy/Middlewares/Third_Party/FatFs/src"
             ],
-            "name": "macOS"
+            "name": "Linux"
         }
     ],
     "version": 4
