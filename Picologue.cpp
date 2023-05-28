@@ -60,7 +60,7 @@ int   currentPage    = 0;
 float attack         = 30;
 float decay          = 30;
 float sustain        = 0;
-float release        = 0;
+float release        = 30;
 
 void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
                    AudioHandle::InterleavingOutputBuffer out,
@@ -239,6 +239,7 @@ int main(void)
         rightButton.Debounce();
         menu.drawMenu((activeVoice) ? osc1_octave : osc2_octave,
                       indexPage1,
+                      indexPage2,
                       (activeVoice) ? osc1_shape : osc2_shape,
                       (activeVoice) ? osc1_shape_mod : osc2_shape_mod,
                       (activeVoice) ? osc1_amp : osc2_amp,
@@ -479,24 +480,56 @@ int main(void)
         //Button
         if(leftButton.RisingEdge())
         {
-            if(indexPage1 < 4)
+            if(currentPage == 0)
             {
-                indexPage1++;
+                if(indexPage1 < 4)
+                {
+                    indexPage1++;
+                }
+                else
+                {
+                    indexPage1 = 0;
+                }
             }
-            else
+
+            if(currentPage == 1)
             {
-                indexPage1 = 0;
+                if(indexPage2 < 3)
+                {
+                    indexPage2++;
+                }
+                else
+                {
+                    indexPage2 = 0;
+                }
             }
         }
+
+
         if(rightButton.RisingEdge())
         {
-            if(indexPage1 > 0)
+            if(currentPage == 0)
             {
-                indexPage1--;
+                if(indexPage1 > 0)
+                {
+                    indexPage1--;
+                }
+                else
+                {
+                    indexPage1 = 4;
+                }
             }
-            else
+
+            if(currentPage == 1)
             {
-                indexPage1 = 4;
+                if(indexPage2 > 0)
+                {
+                    indexPage2--;
+                }
+                else
+                {
+                    indexPage2 = 3;
+                }
             }
         }
     }

@@ -3,6 +3,7 @@
 
 void Menu::drawMenu(int   octave,
                     int   indexPageOne,
+                    int   indexPageTwo,
                     int   shape,
                     int   shapeMod,
                     float amp,
@@ -20,7 +21,9 @@ void Menu::drawMenu(int   octave,
             this->drawPageOne(
                 octave, indexPageOne, shape, shapeMod, amp, pitch);
             break;
-        case 1: this->drawPageTwo(indexPageOne, attack, decay, sustain, release); break;
+        case 1:
+            this->drawPageTwo(indexPageTwo, attack, decay, sustain, release);
+            break;
         default: break;
     }
 }
@@ -62,16 +65,90 @@ void Menu::drawPageTwo(int   indexPageTwo,
                        float release)
 {
     display->Fill(!this->colorScheme);
-    this->selector(indexPageTwo, 0, this->colorScheme);
+    this->selector(indexPageTwo, 1, this->colorScheme);
     //attack
+    switch(indexPageTwo)
+    {
+        case 0:
+            for(int i = 0; i < attack; i = i + 1)
+            {
+                display->DrawLine(
+                    i, display->Height(), attack, 12, this->colorScheme);
+            }
+            break;
+        case 1:
+            display->DrawLine(
+                0, display->Height(), attack, 12, this->colorScheme);
+            for(int i = 0; i < display->Height() / 2; i = i + 1)
+            {
+                display->DrawLine(attack,
+                                  12,
+                                  attack + decay,
+                                  (display->Height() / 2) + i,
+                                  this->colorScheme);
+            }
+            for(int i = 0; i < decay; i = i + 1)
+            {
+                display->DrawLine(attack,
+                                  12,
+                                  attack + i,
+                                  display->Height(),
+                                  this->colorScheme);
+            }
+
+
+            display->DrawLine(attack,
+                              12,
+                              attack + decay,
+                              display->Height() / 2,
+                              this->colorScheme);
+
+            break;
+
+        case 2:
+
+            for(size_t i = 0; i < display->Width() / 4; i++)
+            {
+                display->DrawLine(attack + decay + i,
+                                  display->Height() / 2,
+                                  attack + decay + i,
+                                  display->Height(),
+                                  this->colorScheme);
+            }
+            break;
+
+        case 3:
+
+
+            for(size_t i = attack + decay + (display->Width() / 4);
+                i < display->Width();
+                i++)
+            {
+                display->DrawLine(attack + decay + (display->Width() / 4),
+                                  display->Height() / 2,
+                                  i,
+                                  display->Height(),
+                                  this->colorScheme);
+            }
+            display->DrawLine(attack + decay + display->Width() / 4,
+                              display->Height() / 2,
+                              display->Width(),
+                              display->Height(),
+                              this->colorScheme);
+
+            break;
+
+        default: break;
+    }
+    display->SetCursor(attack - 2, 2);
+    display->WriteString("A", Font_6x8, this->colorScheme);
+
     display->DrawLine(0, display->Height(), attack, 12, this->colorScheme);
     for(int i = 0; i < display->Height(); i = i + 3)
     {
         display->DrawPixel(attack, 12 + i, this->colorScheme);
     }
-    // display->DrawLine(attack, 12, attack, display->Height(), this->colorScheme);
-    display->SetCursor(attack - 2, 2);
-    display->WriteString("A", Font_6x8, this->colorScheme);
+
     //decay
     display->DrawLine(
         attack, 12, attack + decay, display->Height() / 2, this->colorScheme);

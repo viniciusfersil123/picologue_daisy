@@ -16,6 +16,7 @@ class Menu
     //functions
     void drawMenu(int   octave,
                   int   indexPageOne,
+                  int   indexPageTwo,
                   int   shape,
                   int   shapeMod,
                   float amp,
