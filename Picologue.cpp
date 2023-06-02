@@ -209,8 +209,8 @@ int main(void)
         voice2[i].osc.SetPw(0.5);
         adsr[i].Init(hw.AudioSampleRate());
         adsr[i].Init(hw.AudioSampleRate());
-        adsr[i].SetAttackTime(0.2);
-        adsr[i].SetDecayTime(0.2);
+        adsr[i].SetAttackTime(attack / 6 + 0.1);
+        adsr[i].SetDecayTime(decay / 6 + 0.1);
         adsr[i].SetSustainLevel(0.8);
         adsr[i].SetReleaseTime(0.2);
     }
@@ -473,6 +473,40 @@ int main(void)
                 for(int i = 0; i < voice_number; i++)
                 {
                     adsr[i].SetAttackTime(attack / 6 + 0.1);
+                }
+            }
+            if(indexPage2 == 1)
+            {
+                decay += encoderRight.Increment();
+
+                if(decay > 128 / 4)
+                {
+                    decay = 128 / 4;
+                }
+                if(decay < 0)
+                {
+                    decay = 0;
+                }
+                for(int i = 0; i < voice_number; i++)
+                {
+                    adsr[i].SetDecayTime(decay / 6 + 0.1);
+                }
+            }
+            if(indexPage2 == 3)
+            {
+                release += encoderRight.Increment();
+
+                if(release > 128 / 4)
+                {
+                    release = 128 / 4;
+                }
+                if(release < 0)
+                {
+                    release = 0;
+                }
+                for(int i = 0; i < voice_number; i++)
+                {
+                    adsr[i].SetReleaseTime(release / 64);
                 }
             }
         }

@@ -118,10 +118,8 @@ void Menu::drawPageTwo(int   indexPageTwo,
             break;
 
         case 3:
-
-
             for(size_t i = attack + decay + (display->Width() / 4);
-                i < display->Width();
+                i < attack + decay + (display->Width() / 4) + release;
                 i++)
             {
                 display->DrawLine(attack + decay + (display->Width() / 4),
@@ -132,7 +130,7 @@ void Menu::drawPageTwo(int   indexPageTwo,
             }
             display->DrawLine(attack + decay + display->Width() / 4,
                               display->Height() / 2,
-                              display->Width(),
+                              attack + decay + (display->Width() / 4) + release,
                               display->Height(),
                               this->colorScheme);
 
@@ -177,7 +175,7 @@ void Menu::drawPageTwo(int   indexPageTwo,
     //release
     display->DrawLine(attack + decay + display->Width() / 4,
                       display->Height() / 2,
-                      display->Width(),
+                      attack + decay + (display->Width() / 4) + release,
                       display->Height(),
                       this->colorScheme);
     for(int i = 0; i < display->Height(); i = i + 3)
@@ -185,7 +183,7 @@ void Menu::drawPageTwo(int   indexPageTwo,
         display->DrawPixel(
             display->Width(), display->Height() + i, this->colorScheme);
     }
-    display->SetCursor(display->Width() - 8, display->Height() - 24);
+    display->SetCursor((attack + decay + (display->Width() / 4) + release) - 8, display->Height() - 24);
     display->WriteString("R", Font_6x8, this->colorScheme);
     display->Update();
 }
